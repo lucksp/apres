@@ -3,19 +3,40 @@ angular.module('apresApp', [])
 angular.module('apresApp')
 	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', function($scope, mtnFactory, eventPromoFactory){
 
-		$scope.mtnsArray = mtnFactory.mtnsData;
+// **** SKI RESORT FUNCTIONS ****
 
-		var returnMtns = function(response) {
-
-			if (mtnFactory.mtnsData.length == 0){
-				response.data.forEach(function(item){
-					new quoteFactory.MountainObj(item.id, item.name, item.city, item.zip, item.state, item.lifts, item.trails, this.hi, this.low, this.description, this.lastSnow, this.icon, this.HiOne, this.LowOne, this.IconOne, this.HiTwo, this.LowTwo, this.IconTwo, this.HiThree, this.LowThree, this.IconThree)
+		var returnMtns = function(responseMtn) {
+			if (mtnFactory.mtnsData.length === 0){
+				responseMtn.data.forEach(function(itemMtn){
+					new mtnFactory.MountainObj(itemMtn.id, itemMtn.name, itemMtn.city, itemMtn.zip, itemMtn.state, itemMtn.lifts, itemMtn.trails, itemMtn.logoUrl, itemMtn.hi, itemMtn.low, itemMtn.description, itemMtn.lastSnow, itemMtn.HiOne, itemMtn.LowOne, itemMtn.IconOne, itemMtn.HiTwo, itemMtn.LowTwo, itemMtn.IconTwo, itemMtn.HiThree, itemMtn.LowThree, itemMtn.IconThree)
 				})
 			}
-					console.log($scope.mtnsArray)
-
 		}
+
 		mtnFactory.get().then(returnMtns)
 
+		$scope.mtnsArray = mtnFactory.mtnsData;
+
+
+// **** APRES EVENTS/PROMO FUNCTIONS ****
+
+		var returnApres = function(responseApres) {
+			if (eventPromoFactory.eventPromoArray.length === 0){
+				responseApres.data.forEach(function(itemApres) {
+					new eventPromoFactory.EventPromoObj(itemApres.id, itemApres.name, itemApres.address, itemApres.city, itemApres.state, itemApres.zip, itemApres.type, itemApres.category, itemApres.rating, itemApres.date, itemApres.promotion, itemApres.code, itemApres.repeat)
+				})
+			}
+		}
+
+		eventPromoFactory.get().then(returnApres)
+
+		$scope.eventPromoArray = eventPromoFactory.eventPromoArray
+
+// TRAFFIC CARD
+
+	$scope.selectMtnDirx = function(index){
+		console.log('hello', index, $scope.mtnsArray[index], $scope.addy)
+	}
 
 }]);
+

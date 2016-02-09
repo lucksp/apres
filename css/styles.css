@@ -81,7 +81,7 @@ body {
 	display: inline-block;
 }
 
-/*  CONTENT  */
+/*  **** CONTENT****  */
 
 .cardText h4 {
 	font-size: 20px;
@@ -101,21 +101,121 @@ body {
 	border-right:  1px solid #e5e5e5;
 }
 
+/* *** SNOW SNAPSHOT *** */
+
 .snowSnap {
-	list-style-type: none;
+	display: inline-flexbox;
+	justify-content: space-around;
+	background-color: white;
+}
+
+.snowSnap ul {
+	padding-left: 0px;
 }
 
 .snowSnap li {
-	display: inline
-}
-
-.dealSnap {
+	display: inline;
+	flex: 1 1 auto;
 	list-style-type: none;
 }
 
-.dealSnap li {
-	display: inline
+.snowSnapName {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #498ff0;
+	padding-right: 15px;
 }
+
+.snowSnapInches {
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+.snowSnapDeg {
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+.mtnLogo {
+	width: 100px;
+	margin: 15px 25px;
+}
+
+.mtnName {
+	font-weight: bold;
+}
+
+/* *** APRES SNAPSHOT *** */
+
+.apresSnap {
+	display: inline-flexbox;
+	justify-content: space-around;
+	background-color: white;
+		padding: 15px 25px;
+}
+
+.apresSnap ul {
+	padding-left: 0px;
+}
+
+.apresSnap li {
+	display: inline;
+	flex: 1 1 auto;
+	list-style-type: none;
+}
+
+.apresSnapName {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #498ff0;
+	padding-right: 15px;
+}
+
+.apresSnapCity {
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+.apresSnapType {
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+.apresSnapPromo {
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+/* *** TRAFFIC SNAP *** */
+
+.trafficSnap {
+}
+
+.trafficSnap input {
+	width: 200px;
+	margin-right: 15px;
+}
+
+
+/*  **** PAGE: SNOW REPORT**** */
+
+.snowTableHead img {
+	background-image: url('img/snowRpt_jumbo.jpg');
+	object-fit: cover;
+	width: 100vw;
+	height: 300px;
+}
+
+.snowTable {
+	margin-top: 25px;
+}
+
+/*  **** PAGE: APRES **** */
+
+.apresTable {
+	margin-top: 200px;
+}
+
 
 /*  FOOTER  */
 

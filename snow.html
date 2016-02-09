@@ -21,8 +21,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Deals & Events</a></li>
+        <li class="active"><a href="snow.html">Snow Report<span class="sr-only">(current)</span></a></li>
+        <li><a href="apres.html">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
@@ -40,12 +40,49 @@
 	<div class="container-fluid">
 		<div class="row logo">
 			<div class="col-xs-12">
-				<a href="#"><img class="pagination-center" src="img/apres-logo.png" alt="apres skihub logo"></a>
+				<a href="index.html"><img class="pagination-center" src="img/apres-logo.png" alt="apres skihub logo"></a>
 			</div>
 		</div>
 	</div>
 
-<!-- FOOTER -->
+  <!-- CONTENT -->
+
+  <div class="snowTableHead">
+    <img src="img/snowRpt_jumbo.jpg">
+  </div>
+
+  <div class="container snowTable">
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Lifts</th>
+          <th>Trails</th>
+          <th>Last Snow</th>
+          <th>Today's Forecast</th>
+          <th>3-Day Forecast</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="mtnList in mtnsArray">
+          <th scope="row"><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtnList.logoUrl}}"></th>
+          <td>{{mtnList.name}}</td>
+          <td>{{mtnList.city}}</td>
+          <td>{{mtnList.lifts}}</td>
+          <td>{{mtnList.trails}}</td>
+          <td>{{mtnList.lastSnow}}"</td>
+          <td>Hi/Low: {{mtnList.hi}}&deg/{{mtnList.low}}&deg<br>{{mtnList.description}}</br><br><img alt="weather Icon" class="mtnLogo" ng-src="{{mtnList.IconOne}}"></br></td>
+          <td>{{mtnList.HiTwo}}&deg/{{mtnList.LowTwo}}&deg<br>{{mtnList.HiThree}}&deg/{{mtnList.LowThree}}&deg<br>{{mtnList.HiTwo}}&deg/{{mtnList.HiTwo}}&deg</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- FOOTER -->
 
 <footer class="footer navbar-inverse">
       <div class="container-fluid">

@@ -21,8 +21,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#">Deals & Events</a></li>
+        <li><a href="snow.html">Snow Report<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="apres.html">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
@@ -40,10 +40,43 @@
 	<div class="container-fluid">
 		<div class="row logo">
 			<div class="col-xs-12">
-				<a href="#"><img class="pagination-center" src="img/apres-logo.png" alt="apres skihub logo"></a>
+				<a href="index.html"><img class="pagination-center" src="img/apres-logo.png" alt="apres skihub logo"></a>
 			</div>
 		</div>
 	</div>
+
+<!-- CONTENT -->
+
+<div class="container apresTable">
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Rating</th>
+          <th>Promotion</th>
+          <th>Code</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="apresList in eventPromoArray">
+          <th  scope="row">{{apresList.name}}</th>
+          <td>{{apresList.city}}</td>
+          <td>{{apresList.type}}</td>
+          <td>{{apresList.category}}</td>
+          <td>{{apresList.rating}}</td>
+          <td>{{apresList.promotion}}</td>
+          <td>{{apresList.code}}</td>
+          <td>{{apresList.date | date: shortDate }}</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+
+  </div>
 
 <!-- FOOTER -->
 
@@ -58,9 +91,15 @@
 </body>
 
 <!-- SCRIPTS -->
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+    $('dropdown-toggle').dropdown()
+});
+</script>
 </html>

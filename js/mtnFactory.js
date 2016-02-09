@@ -1,8 +1,8 @@
 angular.module('apresApp')
-	.factory('mtnFactory', [function($http){
+	.factory('mtnFactory', ['$http', function($http){
 
 	var mtnsData = [];
-	var MountainObj = function( id, name, city, zip, state, lifts, trails, hi, low, description, lastSnow, icon, HiOne, LowOne,	IconOne, HiTwo,	LowTwo, IconTwo, HiThree, LowThree,	IconThree ){
+	var MountainObj = function( id, name, city, zip, state, lifts, trails, logoUrl, hi, low, description, lastSnow, HiOne, LowOne, IconOne, HiTwo, LowTwo, IconTwo, HiThree, LowThree, IconThree ){
 
 		this.id 		= id;
 		this.name		= name;
@@ -11,13 +11,12 @@ angular.module('apresApp')
 		this.state		= state;
 		this.lifts		= lifts;
 		this.trails		= trails;
-		// this.logo		= logo;
+		this.logoUrl	= logoUrl;
 		// this.skiMap		= skiMap; 
 		this.hi			= hi;
 		this.low 		= low;
 		this.description = description;
 		this.lastSnow 	= lastSnow;
-		this.icon 		= icon;
 		this.HiOne		= HiOne;
 		this.LowOne		= LowOne;
 		this.IconOne  	= IconOne;
@@ -27,7 +26,7 @@ angular.module('apresApp')
 		this.HiThree		= HiThree;
 		this.LowThree		= LowThree;
 		this.IconThree  	= IconThree;
-		mtnsArray.push(this)
+		mtnsData.push(this)
 
 	}
 
@@ -36,9 +35,9 @@ angular.module('apresApp')
 		MountainObj	:MountainObj,
 		mtnsData	:mtnsData,
 		get 		:function(){
-			return $http.get('resortdata.json')
+			return $http.get('http://localhost:8000/resortdata.json')
 		}
-
 	}
 
-}])
+}]);
+

@@ -4,6 +4,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 </head>
 <body ng-controller="apresController">
 
@@ -21,8 +22,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Deals & Events</a></li>
+        <li><a href="snow.html">Snow Report<span class="sr-only">(current)</span></a></li>
+        <li><a href="apres.html">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
@@ -65,14 +66,17 @@
     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Snow SnapShot</h4>
-      <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions</p>
+      <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions.</p>
 
-        <ul class="snowSnap">
-          <li>{{angular.json.name}}</li>
-          <li>{{angular.json.snow}}</li>
-          <li>{{angular.json.HiTemp}}</li>
-          <li>{{angular.json.icon}}</li>
+      <div class="snowSnap">
+        <ul class="snowSnapText" ng-repeat="mtns in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
+          <li><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtns.logoUrl}}"></li>
+          <li class="snowSnapName">{{mtns.name}}</li>
+          <li class="snowSnapInches">{{mtns.lastSnow}}"</li>
+          <li class="snowSnapDeg">{{mtns.hi}}&deg</li>
+          <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{mtns.iconUrl}}"></li>
         </ul>
+      </div>
 
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
@@ -81,14 +85,15 @@
     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Traffic SnapShot</h4>
-      <p class="card-text">Check your travel times.</p>
-      <form>
-        <input type="address" placeholder="Enter Your Starting Point">
+      <p class="card-text">Check your travel time to your resort of choice.</p>
+      <form class="trafficSnap">
+        <input type="address" placeholder="Enter Your Starting Point" ng-model="addy">
+        {{addy}}
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="#">{{angular.json.name}}</a></li>
+            <li class="dropList" ng-repeat="mtns in mtnsArray"><a data-target="#" ng-click="selectMtnDirx($index)">{{mtns.name}}</a></li>
           </ul>
         </div>
       </form>
@@ -98,15 +103,18 @@
     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Apr&eacutes Deals & Events SnapShot</h4>
-      <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
-
-        <ul class="dealSnap">
-          <li>{{angular.json.name}}</li>
-          <li>{{angular.json.type}}</li>
-          <li>{{angular.json.details}}</li>
+        <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
+          <h3>Today's Best Finds</h3>
+      <div class="apresSnap">
+        <ul class="apresSnapText" ng-repeat="apres in eventPromoArray | orderBy:'date' | limitTo: 10 ">
+          <li class="apresSnapName">{{apres.name}}</li>
+          <li class="apresSnapCity">{{apres.city}}</li>
+          <li class="apresSnapType">{{apres.type}}</li>
+          <li class="apresSnapPromo">{{apres.promotion}}</li>
         </ul>
+      </div>
 
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Last updated 5 hours ago</small></p>
     </div>
   </div>
 </div>
@@ -125,8 +133,11 @@
 </body>
 
 <!-- SCRIPTS -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/resortData.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
