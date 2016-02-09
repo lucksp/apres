@@ -7,13 +7,14 @@ body {
 .navbar {
 	margin: 0;
 	padding: 15px 25px;
-	border-bottom: 3px solid black;
+	border-bottom: 4px solid rgba(149, 255, 222, 1);
 	width: 100vw;
 }
 
 .logo {
 	position: absolute;
 	top: 0;
+	left: -138px;
 	z-index: 10;
 	margin-left: 50%;
 	margin-right: 50%;
@@ -21,26 +22,30 @@ body {
 
 /* JUMBOTRON */
 
-.dualjumbo {
-	width: 100vw;
+.jumbotron {
 	padding: 0;
-	margin-bottom: 25px;
+	margin-bottom: 0px;
+	border-bottom: 4px solid rgba(149, 255, 222, 1);
+
 }
 
-.jumboText {
+.jumboTextLeft {
 	color: black;
-	background-color: rgba(255, 255, 255, .8);
+	background-color: rgba(149, 255, 222, .8);
 	width: 55%;
-	padding: 20px;
+	padding: 20px 40px;
 	margin-left: 20px;
 	margin-top: 200px;
 }
 
-.jumboBtn {
-	margin-left: 50%;
-	margin-right: 50%;
-	padding: 10px 60px;
-	margin-top: 500px;
+.jumboTextRight {
+	color: black;
+	background-color: rgba(149, 255, 222, .8);
+	width: 55%;
+	padding: 20px 40px;
+	margin-right: 20px;
+	margin-top: 200px;
+	float: right;
 }
 
 .jumboText h1 {
@@ -50,6 +55,8 @@ body {
 .jumbotron .btn {
 	margin-left: 50%;
 	margin-right: 50%;
+	background-color: rgba(190, 144, 212, 1);
+	border: 1px solid rgba(130, 28, 178, 1);
 }
 
 .jumbotronLeft {
@@ -57,7 +64,7 @@ body {
 	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_snow_Fotor.jpg');
-	background-repeat: no-repeat;
+	background-size: cover;
 	position: absolute;
 	left: 0
 	display: inline;
@@ -67,20 +74,57 @@ body {
 	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_town_Fotor.jpg');
-	background-repeat: no-repeat;
+	background-size: cover;
 	position: relative;
 	float: right;
 	right: 0;
-	display: inline;
+	display: inline-block;
 }
 
 /*  CONTENT  */
 
-.snapshot {
+.cardText h4 {
+	font-size: 20px;
 	position: relative;
-	width: 50%;
 }
 
-.snapshotContent {
-	background-color: white;
+.card {
+	border-top: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 10px;
+	margin: 15px auto;
+	min-height: 375px;
+}
+
+.card:last-child {
+	border-right:  1px solid #e5e5e5;
+}
+
+.snowSnap {
+	list-style-type: none;
+}
+
+.snowSnap li {
+	display: inline
+}
+
+.dealSnap {
+	list-style-type: none;
+}
+
+.dealSnap li {
+	display: inline
+}
+
+/*  FOOTER  */
+
+.footer {
+	border-top: 4px solid rgba(149, 255, 222, 1);
+	padding: 30px;
+}	
+
+.footer p {
+	font-size: 1rem;
+	text-align: center;
 }

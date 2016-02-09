@@ -7,7 +7,7 @@
 </head>
 <body ng-controller="apresController">
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,8 +21,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Events & Promos</a></li>
+        <li><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
@@ -46,46 +46,85 @@
 	</div>
 
 	<!-- JUMBOTRON -->
-		<div class="container-fluid dualjumbo">
-      <div class="jumbotronLeft">
-        <h1 class="jumboText">SKI REPORT</h1>
-				<a class="btn btn-primary btn-lg jumboBtn" href="#" role="button">Ski Report</a>
-			</div>
-  		<div class="jumbotronRight">
-        <h1 class="jumboText">APRES REPORT</h1>
-  				<a class="btn btn-primary btn-lg jumboBtn" href="#" role="button">Apres Ski</a>
-  		</div>
-	   </div>
+
+    <div class="jumbotron container-fluid">
+      <div class="jumbotronLeft col-sm-6">
+        <h1 class="jumboTextLeft">Snow Report</h1>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </div>
+      <div class="jumbotronRight col-sm-6">
+        <h1 class="jumboTextRight">Apr&eacutes Report</h1>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </div>
     </div>
 
     <!-- CONTENT -->
+<div class="card-deck-wrapper container-fluid cardText">
+  <div class="card-deck">
+    <div class="card col-sm-4">
+    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Snow SnapShot</h4>
+      <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions</p>
 
-  <div class="container">
-    <div class="row">
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Weather Report</a></li>
-          <li><a data-toggle="tab" href="#menu1">Events & Promotions</a></li>
-          <li><a data-toggle="tab" href="#menu2">Traffic</a></li>
+        <ul class="snowSnap">
+          <li>{{angular.json.name}}</li>
+          <li>{{angular.json.snow}}</li>
+          <li>{{angular.json.HiTemp}}</li>
+          <li>{{angular.json.icon}}</li>
         </ul>
 
-        <div class="tab-content snapshotContent">
-          <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Some content.</p>
-          </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Some content in menu 1.</p>
-          </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Some content in menu 2.</p>
-          </div>
-        </div>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+  <div class="card col-sm-4">
+    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Traffic SnapShot</h4>
+      <p class="card-text">Check your travel times.</p>
+      <form>
+        <input type="address" placeholder="Enter Your Starting Point">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">{{angular.json.name}}</a></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card col-sm-4">
+    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Apr&eacutes Deals & Events SnapShot</h4>
+      <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
+
+        <ul class="dealSnap">
+          <li>{{angular.json.name}}</li>
+          <li>{{angular.json.type}}</li>
+          <li>{{angular.json.details}}</li>
+        </ul>
+
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer navbar-inverse">
+      <div class="container-fluid">
+        <p class="copy text-muted">&copy 2016 | PhLucks</p>
+      </div>
+</footer>
+
+
 
 </body>
+
+<!-- SCRIPTS -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
