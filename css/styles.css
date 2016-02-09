@@ -1,0 +1,86 @@
+body {
+	background-color: #ecf0f1;
+}
+
+/* NAV */
+
+.navbar {
+	margin: 0;
+	padding: 15px 25px;
+	border-bottom: 3px solid black;
+	width: 100vw;
+}
+
+.logo {
+	position: absolute;
+	top: 0;
+	z-index: 10;
+	margin-left: 50%;
+	margin-right: 50%;
+}
+
+/* JUMBOTRON */
+
+.dualjumbo {
+	width: 100vw;
+	padding: 0;
+	margin-bottom: 25px;
+}
+
+.jumboText {
+	color: black;
+	background-color: rgba(255, 255, 255, .8);
+	width: 55%;
+	padding: 20px;
+	margin-left: 20px;
+	margin-top: 200px;
+}
+
+.jumboBtn {
+	margin-left: 50%;
+	margin-right: 50%;
+	padding: 10px 60px;
+	margin-top: 500px;
+}
+
+.jumboText h1 {
+	font-size: 3rem;
+}
+
+.jumbotron .btn {
+	margin-left: 50%;
+	margin-right: 50%;
+}
+
+.jumbotronLeft {
+	width: 50vw;
+	height: 95vh;
+	margin: 0;
+	background-image: url('../img/jumbo_snow_Fotor.jpg');
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0
+	display: inline;
+}
+.jumbotronRight {
+	width: 50vw;
+	height: 95vh;
+	margin: 0;
+	background-image: url('../img/jumbo_town_Fotor.jpg');
+	background-repeat: no-repeat;
+	position: relative;
+	float: right;
+	right: 0;
+	display: inline;
+}
+
+/*  CONTENT  */
+
+.snapshot {
+	position: relative;
+	width: 50%;
+}
+
+.snapshotContent {
+	background-color: white;
+}

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="ApresApp">
+<html ng-app="apresApp">
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body ng-controller="ApresControl">
+<body ng-controller="apresController">
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -17,13 +17,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#">Snow Report<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Events & Promos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
@@ -37,8 +36,59 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+  <!--  LOGO  -->
+	<div class="container-fluid">
+		<div class="row logo">
+			<div class="col-xs-12">
+				<a href="#"><img class="pagination-center" src="img/apres-logo.png" alt="apres skihub logo"></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- JUMBOTRON -->
+		<div class="container-fluid dualjumbo">
+      <div class="jumbotronLeft">
+        <h1 class="jumboText">SKI REPORT</h1>
+				<a class="btn btn-primary btn-lg jumboBtn" href="#" role="button">Ski Report</a>
+			</div>
+  		<div class="jumbotronRight">
+        <h1 class="jumboText">APRES REPORT</h1>
+  				<a class="btn btn-primary btn-lg jumboBtn" href="#" role="button">Apres Ski</a>
+  		</div>
+	   </div>
+    </div>
+
+    <!-- CONTENT -->
+
+  <div class="container">
+    <div class="row">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Weather Report</a></li>
+          <li><a data-toggle="tab" href="#menu1">Events & Promotions</a></li>
+          <li><a data-toggle="tab" href="#menu2">Traffic</a></li>
+        </ul>
+
+        <div class="tab-content snapshotContent">
+          <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Some content.</p>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
 </body>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/mtnFactory.js"></script>
+  <script type="text/javascript" src="js/eventPromoFactory.js"></script>
 </html>
