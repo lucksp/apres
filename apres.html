@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-controller="apresController">
@@ -25,12 +26,14 @@
         <li class="active"><a href="apres.html">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+        <form class="searchBox">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input type="text" class="form-control" placeholder="Search Apres" ng-model="searchApresData">
+            </div>      
+          </div>
+        </form>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -47,22 +50,73 @@
 
 <!-- CONTENT -->
 
+  <div class="apresTableHead">
+    <img src="img/apresRpt_jumbo.jpg">
+  </div>
+
+<div class="container date-bar">
+  <div class="row">
+    <p> TEMP </p>
+  </div>
+</div>
+
 <div class="container apresTable">
     <table class="table">
       <thead class="thead-default">
         <tr>
-          <th>Name</th>
-          <th>City</th>
-          <th>Type</th>
-          <th>Category</th>
-          <th>Rating</th>
-          <th>Promotion</th>
-          <th>Code</th>
-          <th>Date</th>
+          <td>
+            <a href="#" ng-click="sortApresType = 'name'; sortApresReverse = !sortApresReverse">
+              Name
+            <span ng-show="sortApresType == 'name' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'name' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'city'; sortApresReverse = !sortApresReverse">
+              City
+            <span ng-show="sortApresType == 'city' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'city' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'type'; sortApresReverse = !sortApresReverse">
+              Type
+            <span ng-show="sortApresType == 'type' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'type' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'category'; sortApresReverse = !sortApresReverse">
+              Category
+            <span ng-show="sortApresType == 'category' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'category' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'rating'; sortApresReverse = !sortApresReverse">
+              Rating
+            <span ng-show="sortApresType == 'rating' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'rating' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'promo'; sortApresReverse = !sortApresReverse">
+              Promotion
+            <span ng-show="sortApresType == 'promo' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'promo' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'code'; sortApresReverse = !sortApresReverse">
+              Code
+            <span ng-show="sortApresType == 'code' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'code' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortApresType = 'date'; sortApresReverse = !sortApresReverse">
+              Date
+            <span ng-show="sortApresType == 'date' && !sortApresReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortApresType == 'date' && sortApresReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td><a>Pin It!</a></td>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="apresList in eventPromoArray">
+        <tr ng-repeat="apresList in eventPromoArray | orderBy:sortApresType:sortApresReverse | filter:searchApresData">
           <th  scope="row">{{apresList.name}}</th>
           <td>{{apresList.city}}</td>
           <td>{{apresList.type}}</td>
@@ -71,6 +125,7 @@
           <td>{{apresList.promotion}}</td>
           <td>{{apresList.code}}</td>
           <td>{{apresList.date | date: shortDate }}</td>
+          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
         </tr>
         <tr>
       </tbody>

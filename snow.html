@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-controller="apresController">
@@ -25,11 +26,13 @@
         <li><a href="apres.html">Deals & Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" role="search">
+      <form class="searchBox">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Search Resorts" ng-model="searchSnowData">
+          </div>      
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -50,23 +53,56 @@
   <div class="snowTableHead">
     <img src="img/snowRpt_jumbo.jpg">
   </div>
-
   <div class="container snowTable">
     <table class="table">
       <thead class="thead-default">
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>City</th>
-          <th>Lifts</th>
-          <th>Trails</th>
-          <th>Last Snow</th>
-          <th>Today's Forecast</th>
-          <th>3-Day Forecast</th>
+        <tr class="header">
+          <td></td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'name'; sortSnowReverse = !sortSnowReverse">
+              Name
+            <span ng-show="sortSnowType == 'name' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == 'name' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'city'; sortSnowReverse = !sortSnowReverse">
+              City
+            <span ng-show="sortSnowType == 'city' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == 'city' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'lifts'; sortSnowReverse = !sortSnowReverse">
+              Lifts
+            <span ng-show="sortSnowType == 'lifts' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == 'lifts' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'trails'; sortSnowReverse = !sortSnowReverse">
+              Trails
+            <span ng-show="sortSnowType == 'trails' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == 'trails' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'lastSnow'; sortSnowReverse = !sortSnowReverse">
+              Last Snow<span ng-show="sortSnowType == 'lastSnow' && !sortSnowReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortSnowType == 'lastSnow' && sortSnowReverse" class="fa fa-caret-up"></span>
+            </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = 'todaysForecast'; sortSnowReverse = !sortSnowReverse">
+              Today's Forecast
+            <span ng-show="sortSnowType == 'todaysForecast' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == 'todaysforecast' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
+          <td>
+            <a href="#" ng-click="sortSnowType = '3day'; sortSnowReverse = !sortSnowReverse">
+              3-Day Forecast
+            <span ng-show="sortSnowType == '3day' && !sortSnowReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortSnowType == '3day' && sortSnowReverse" class="fa fa-caret-up"></span>
+          </td>
         </tr>
       </thead>
-      <tbody>
-        <tr ng-repeat="mtnList in mtnsArray">
+      <tbody class="tableContent">
+        <tr ng-repeat="mtnList in mtnsArray | orderBy:sortSnowType:sortSnowReverse | filter:searchSnowData">
           <th scope="row"><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtnList.logoUrl}}"></th>
           <td>{{mtnList.name}}</td>
           <td>{{mtnList.city}}</td>

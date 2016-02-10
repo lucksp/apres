@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 </head>
@@ -51,18 +52,18 @@
     <div class="jumbotron container-fluid">
       <div class="jumbotronLeft col-sm-6">
         <h1 class="jumboTextLeft">Snow Report</h1>
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          <a class="btn btn-primary btn-lg" href="snow.html" role="button">Full Report Here</a>
       </div>
       <div class="jumbotronRight col-sm-6">
         <h1 class="jumboTextRight">Apr&eacutes Report</h1>
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          <a class="btn btn-primary btn-lg" href="apres.html" role="button">Find Your Apr&eacutes Here</a>
       </div>
     </div>
 
     <!-- CONTENT -->
 <div class="card-deck-wrapper container-fluid cardText">
   <div class="card-deck">
-    <div class="card col-sm-4">
+    <div class="card col-sm-6">
     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Snow SnapShot</h4>
@@ -74,37 +75,20 @@
           <li class="snowSnapName">{{mtns.name}}</li>
           <li class="snowSnapInches">{{mtns.lastSnow}}"</li>
           <li class="snowSnapDeg">{{mtns.hi}}&deg</li>
-          <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{mtns.iconUrl}}"></li>
+<!--           <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{mtns.IconOne}}"></li>
+ -->          <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{getIcons()}}">{{mtns.IconOne}}</li>
         </ul>
       </div>
 
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-  <div class="card col-sm-4">
+
+  <div class="card col-sm-6">
     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">Traffic SnapShot</h4>
-      <p class="card-text">Check your travel time to your resort of choice.</p>
-      <form class="trafficSnap">
-        <input type="address" placeholder="Enter Your Starting Point" ng-model="addy">
-        {{addy}}
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li class="dropList" ng-repeat="mtns in mtnsArray"><a data-target="#" ng-click="selectMtnDirx($index)">{{mtns.name}}</a></li>
-          </ul>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="card col-sm-4">
-    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title">Apr&eacutes Deals & Events SnapShot</h4>
+      <h4 class="card-title">Today's Apr&eacutes SnapShot</h4>
         <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
-          <h3>Today's Best Finds</h3>
       <div class="apresSnap">
         <ul class="apresSnapText" ng-repeat="apres in eventPromoArray | orderBy:'date' | limitTo: 10 ">
           <li class="apresSnapName">{{apres.name}}</li>
@@ -119,6 +103,24 @@
   </div>
 </div>
 </div>
+
+  <div class="container">
+    <div class="row">
+      <h4 class="title">Traffic SnapShot</h4>
+      <p class="text">Check your travel time to your resort of choice.</p>
+      <form class="trafficSnap">
+        <input type="address" placeholder="Enter Your Starting Point" ng-model="addy">
+        {{addy}}
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li class="dropList" ng-repeat="mtns in mtnsArray"><a data-target="#" ng-click="selectMtnDirx($index)">{{mtns.name}}</a></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
 
 <!-- FOOTER -->
 

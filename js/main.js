@@ -3,6 +3,7 @@ angular.module('apresApp', [])
 angular.module('apresApp')
 	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', function($scope, mtnFactory, eventPromoFactory){
 
+
 // **** SKI RESORT FUNCTIONS ****
 
 		var returnMtns = function(responseMtn) {
@@ -16,6 +17,10 @@ angular.module('apresApp')
 		mtnFactory.get().then(returnMtns)
 
 		$scope.mtnsArray = mtnFactory.mtnsData;
+
+	$scope.sortSnowType     = 'lastSnow'; // set the default sort type
+ 	$scope.sortSnowReverse  = true;  // set the default sort order
+	$scope.searchSnowData   = '';     // set the default search/filter term
 
 
 // **** APRES EVENTS/PROMO FUNCTIONS ****
@@ -31,6 +36,28 @@ angular.module('apresApp')
 		eventPromoFactory.get().then(returnApres)
 
 		$scope.eventPromoArray = eventPromoFactory.eventPromoArray
+
+	$scope.sortApresType     = 'date'; // set the default sort type
+ 	$scope.sortApresReverse  = false;  // set the default sort order
+	$scope.searchApresData   = '';     // set the default search/filter term
+
+// WEATHER ICONS
+
+$scope.getIcons = function(){
+	console.log('hello', $scope.mtnsArray)
+	if($scope.mtnsArray.IconOne == 1){
+		return '../img/icon_sunny.png';
+	}
+	else if($scope.mtnsArray.IconOne == 2){
+		return '../img/icon_sunny.png';
+	}
+	else if($scope.mtnsArray.IconOne == 3){
+		return '../img/icon_sunny.png';
+	}
+	else {
+		return '../img/icon_snow.png';
+	}
+}; 
 
 // TRAFFIC CARD
 
