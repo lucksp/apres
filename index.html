@@ -50,7 +50,7 @@
 	<!-- JUMBOTRON -->
 
     <div class="jumbotron container-fluid">
-      <div class="jumbotronLeft col-sm-6">
+      <div class="jumbotronLeft col-sm-4">
         <h1 class="jumboTextLeft">Snow Report</h1>
           <a class="btn btn-primary btn-lg" href="snow.html" role="button">Full Report Here</a>
       </div>
@@ -63,20 +63,19 @@
     <!-- CONTENT -->
 <div class="card-deck-wrapper container-fluid cardText">
   <div class="card-deck">
-    <div class="card col-sm-6">
-    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
-    <div class="card-block">
+    <div class="card col-lg-4">
+<!--     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+ -->    <div class="card-block">
       <h4 class="card-title">Snow SnapShot</h4>
       <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions.</p>
 
       <div class="snowSnap">
-        <ul class="snowSnapText" ng-repeat="mtns in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
-          <li><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtns.logoUrl}}"></li>
-          <li class="snowSnapName">{{mtns.name}}</li>
-          <li class="snowSnapInches">{{mtns.lastSnow}}"</li>
-          <li class="snowSnapDeg">{{mtns.hi}}&deg</li>
-<!--           <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{mtns.IconOne}}"></li>
- -->          <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{getIcons()}}">{{mtns.IconOne}}</li>
+        <ul class="snowSnapText" ng-repeat="mtn in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
+          <li><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></li>
+          <li class="snowSnapName">{{mtn.name}}</li>
+          <li class="snowSnapInches">{{mtn.lastSnow}}"</li>
+          <li class="snowSnapDeg">{{mtn.hi}}&deg</li>
+         <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{getIcon(mtn)}}"></li>
         </ul>
       </div>
 
@@ -84,9 +83,34 @@
     </div>
   </div>
 
-  <div class="card col-sm-6">
-    <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+<div class="card col-lg-4">
     <div class="card-block">
+      <h4 class="title">Traffic SnapShot</h4>
+      <p class="text">Check your travel time to your resort of choice.</p>
+          <div class="trafficSnapInput" id="floating-panel" style="position: absolute; left: 0">
+            <strong>Your Location:</strong>
+            <select id="start">
+              <option value="denver, co">Denver</option>
+              <option value="boulder, co">Boulder</option>
+              <option value="fort collins, co">Ft. Collins</option>
+              <option value="colorado spring, co">Colorado Springs</option>
+              <option value="golden, co">Golden</option>
+            </select>
+            <br>
+            <strong>Your Destination:</strong>
+            <select id="end">
+              <option value="">Select</option>
+              <option ng-repeat="mtn in mtnsArray" value="{{mtn.name}}, {{mtn.city}}, {{mtn.zip}}">{{mtn.name}}</option>
+            </select>
+          </div>
+        <div id="map"></div>
+        <div id="right-panel"></div>
+      </div>
+    </div>
+
+  <div class="card col-lg-4">
+<!--     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
+ -->    <div class="card-block">
       <h4 class="card-title">Today's Apr&eacutes SnapShot</h4>
         <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
       <div class="apresSnap">
@@ -104,23 +128,23 @@
 </div>
 </div>
 
-  <div class="container">
-    <div class="row">
-      <h4 class="title">Traffic SnapShot</h4>
-      <p class="text">Check your travel time to your resort of choice.</p>
-      <form class="trafficSnap">
+<!-- TRAFFIC  -->
+<div class="card-deck-wrapper container-fluid cardText">
+  <div class="card-deck">
+    
+   </div>
+</div>
+<!--       <form class="trafficSnap">
         <input type="address" placeholder="Enter Your Starting Point" ng-model="addy">
         {{addy}}
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li class="dropList" ng-repeat="mtns in mtnsArray"><a data-target="#" ng-click="selectMtnDirx($index)">{{mtns.name}}</a></li>
+            <li class="dropList" ng-repeat="mtn in mtnsArray"><a data-target="#" on-change="calcRoute()" ng-click="selectMtnDirx($index)">{{mtn.name}}</a></li>
           </ul>
         </div>
-      </form>
-    </div>
-  </div>
+      </form> -->
 
 <!-- FOOTER -->
 
@@ -136,11 +160,20 @@
 
 <!-- SCRIPTS -->
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <script type="text/javascript" src="js/resortData.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
+  <script type="text/javascript" src="js/maps.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsDk-2yOtTK8BZZ9E8VB1N4XAwllaCuf8
+ Done&signed_in=true&callback=initMap"
+        async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js"
+         async defer></script>
+         <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
 </html>

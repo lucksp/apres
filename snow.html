@@ -93,31 +93,58 @@
             <span ng-show="sortSnowType == 'todaysForecast' && !sortSnowReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortSnowType == 'todaysforecast' && sortSnowReverse" class="fa fa-caret-up"></span>
           </td>
-          <td>
+          <!-- <td>
             <a href="#" ng-click="sortSnowType = '3day'; sortSnowReverse = !sortSnowReverse">
               3-Day Forecast
             <span ng-show="sortSnowType == '3day' && !sortSnowReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortSnowType == '3day' && sortSnowReverse" class="fa fa-caret-up"></span>
-          </td>
+          </td> -->
         </tr>
       </thead>
       <tbody class="tableContent">
-        <tr ng-repeat="mtnList in mtnsArray | orderBy:sortSnowType:sortSnowReverse | filter:searchSnowData">
-          <th scope="row"><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtnList.logoUrl}}"></th>
-          <td>{{mtnList.name}}</td>
-          <td>{{mtnList.city}}</td>
-          <td>{{mtnList.lifts}}</td>
-          <td>{{mtnList.trails}}</td>
-          <td>{{mtnList.lastSnow}}"</td>
-          <td>Hi/Low: {{mtnList.hi}}&deg/{{mtnList.low}}&deg<br>{{mtnList.description}}</br><br><img alt="weather Icon" class="mtnLogo" ng-src="{{mtnList.IconOne}}"></br></td>
-          <td>{{mtnList.HiTwo}}&deg/{{mtnList.LowTwo}}&deg<br>{{mtnList.HiThree}}&deg/{{mtnList.LowThree}}&deg<br>{{mtnList.HiTwo}}&deg/{{mtnList.HiTwo}}&deg</td>
+        <tr ng-repeat="mtn in mtnsArray | orderBy:sortSnowType:sortSnowReverse | filter:searchSnowData">
+          <th scope="row"><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></th>
+          <td>{{mtn.name}}</td>
+          <td>{{mtn.city}}</td>
+          <td>{{mtn.lifts}}</td>
+          <td>{{mtn.trails}}</td>
+          <td>{{mtn.lastSnow}}"</td>
+          <td>Hi/Low: {{mtn.hi}}&deg/{{mtn.low}}&deg<br>{{mtn.description}}</br><br><img alt="weather Icon" class="mtnLogo" ng-src="{{getIcon(mtn)}}"></br></td>
+<!--           <td>{{mtn.HiTwo}}&deg/{{mtn.LowTwo}}&deg<br>{{mtn.HiThree}}&deg/{{mtn.LowThree}}&deg<br>{{mtn.HiTwo}}&deg/{{mtn.HiTwo}}&deg</td>
+ -->          <td><button type="button" class="btn btn-primary btn-lg modalBtn" data-toggle="modal" data-target="#myModal" ng-click="modalDetails(mtn)">+</button></td>
         </tr>
         <tr>
       </tbody>
     </table>
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">More Information About {{selectedMtn.name}}</h4>
+          </div>
+      <div class="modal-body">
+        <ul>
+          <li>3 Day Forecast</li>
+          <li>{{selectedMtn.HiTwo}}&deg/{{selectedMtn.LowTwo}}&deg<br>{{selectedMtn.HiThree}}&deg/{{selectedMtn.LowThree}}&deg<br>{{selectedMtn.HiTwo}}&deg/{{selectedMtn.HiTwo}}&deg</li>
+        </ul>
+        <h3>Apres Deals & Promotions for {{baseDate | date: 'mediumDate'}}:</h3>
+        <ul class="modalInfo" ng-repeat="apres in snowApres()">
+          <li>{{apres.name}}</li>
+          <li>{{apres.type}}</li>
+          <li>{{apres.promotion}}</li>
+          <li class="code">GET COUPON CODE <span class="fa fa-caret-down"></span><span class="fa fa-caret-up"></span></li>
+        </ul>
+        <form>
+          <h4>We'll Text You a Code</h4>
+          <input type="tel"></input><input type="submit" value="submit"></input>
+        </form>
+      </div>
+    </div>
   </div>
-
+</div>
+</div>
   <!-- FOOTER -->
 
 <footer class="footer navbar-inverse">
@@ -131,9 +158,12 @@
 </body>
 
 <!-- SCRIPTS -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  <script type="text/javascript" src="js/resortData.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
 </html>

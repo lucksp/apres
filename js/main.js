@@ -43,27 +43,44 @@ angular.module('apresApp')
 
 // WEATHER ICONS
 
-$scope.getIcons = function(){
-	console.log('hello', $scope.mtnsArray)
-	if($scope.mtnsArray.IconOne == 1){
+	$scope.getIcon = function(mtn){
+
+	if(mtn.IconOne == 1){
 		return '../img/icon_sunny.png';
 	}
-	else if($scope.mtnsArray.IconOne == 2){
-		return '../img/icon_sunny.png';
+	else if(mtn.IconOne == 2){
+		return '../img/icon_mostlysunny.png';
 	}
-	else if($scope.mtnsArray.IconOne == 3){
-		return '../img/icon_sunny.png';
+	else if(mtn.IconOne == 3){
+		return '../img/icon_overcast.png';
 	}
 	else {
 		return '../img/icon_snow.png';
 	}
-}; 
+}
 
-// TRAFFIC CARD
+$scope.baseDate = new Date();
+// $scope.dateAdder = function(){
+// 			return $scope.baseDate.getDate() + 1
 
-	$scope.selectMtnDirx = function(index){
-		console.log('hello', index, $scope.mtnsArray[index], $scope.addy)
+
+$scope.modalDetails = function(mtn) {
+	$scope.selectedMtn = mtn
+}
+
+$scope.snowApres = function(){	
+	if ($scope.selectedMtn) {
+		return _.filter($scope.eventPromoArray, function(promo){
+			if ($scope.selectedMtn.zip == promo.zip) {
+				return promo
+			}
+		})
 	}
+	else {
+		return []
+	}
+}
+
 
 }]);
 

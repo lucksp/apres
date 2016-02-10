@@ -35,7 +35,7 @@ angular.module('apresApp')
 		MountainObj	:MountainObj,
 		mtnsData	:mtnsData,
 		get 		:function(){
-			return $http.get('http://localhost:8000/resortdata.json')
+			return $http.get('resortdata.json')
 		}
 	}
 

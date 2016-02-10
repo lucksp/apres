@@ -54,11 +54,26 @@
     <img src="img/apresRpt_jumbo.jpg">
   </div>
 
-<div class="container date-bar">
+<div class="container calendar">
   <div class="row">
-    <p> TEMP </p>
+    <h3><span class="glyphicon glyphicon-chevron-left"> <span class="calendarDay">{{baseDate | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right"></h3>
   </div>
 </div>
+
+<!-- <div class="container calendarList">
+  <div class="row" ng-repeat="apresList in eventPromoArray">
+    <dl class="dl-horizontal">
+      <dt></dt>
+      <dd>{{apresList.name}}</dd>
+      <dd>{{apresList.city}}</dd>
+      <dd>{{apresList.type}}</dd>
+      <dd>{{apresList.category}}</dd>
+      <dd>{{apresList.rating}}</dd>
+      <dd>{{apresList.promotion}}</dd>
+    </dl>
+
+  </div>
+</div> -->
 
 <div class="container apresTable">
     <table class="table">
@@ -100,18 +115,18 @@
             <span ng-show="sortApresType == 'promo' && !sortApresReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortApresType == 'promo' && sortApresReverse" class="fa fa-caret-up"></span>
           </td>
-          <td>
+          <!-- <td>
             <a href="#" ng-click="sortApresType = 'code'; sortApresReverse = !sortApresReverse">
               Code
             <span ng-show="sortApresType == 'code' && !sortApresReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortApresType == 'code' && sortApresReverse" class="fa fa-caret-up"></span>
-          </td>
-          <td>
+          </td> -->
+          <!-- <td>
             <a href="#" ng-click="sortApresType = 'date'; sortApresReverse = !sortApresReverse">
               Date
             <span ng-show="sortApresType == 'date' && !sortApresReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortApresType == 'date' && sortApresReverse" class="fa fa-caret-up"></span>
-          </td>
+          </td> -->
           <td><a>Pin It!</a></td>
         </tr>
       </thead>
@@ -123,9 +138,8 @@
           <td>{{apresList.category}}</td>
           <td>{{apresList.rating}}</td>
           <td>{{apresList.promotion}}</td>
-          <td>{{apresList.code}}</td>
-          <td>{{apresList.date | date: shortDate }}</td>
-          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
+<!--           <td>{{apresList.date | date: shortDate }}</td>
+ -->          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
         </tr>
         <tr>
       </tbody>
