@@ -129,6 +129,7 @@ $scope.snowApres = function(){
 	}
 }
 
+adfadfds
 
 	$scope.couponInputAppear = false;
 	$scope.couponSuccess = false;
