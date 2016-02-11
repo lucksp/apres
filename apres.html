@@ -56,8 +56,15 @@
 
 <div class="container calendar">
   <div class="row">
-    <h3><span class="glyphicon glyphicon-chevron-left"> <span class="calendarDay">{{baseDate | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right"></h3>
+    <h3><span class="glyphicon glyphicon-chevron-left" ng-click="subtrDayClicker()"> <span class="calendarDay">{{today | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right" ng-click="addDayClicker(); details(apresList)"></h3>
   </div>
+  <tr ng-repeat="apresDay in eventPromoArray()">
+          <th scope="row">{{apresDay.name}}</th>
+          <td>{{apresDay.city}}</td>
+          <td>{{apresDay.type}}</td>
+          <td>{{apresDay.category}}</td>
+          <td>{{apresDay.rating}}</td>
+          <td>{{apresDay.promotion}}</td>
 </div>
 
 <!-- <div class="container calendarList">
@@ -166,7 +173,7 @@
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
-  <script type="text/javascript">
+  <script type="text/javascript" src="js/dateFactory.js">
 $(document).ready(function() {
     $('dropdown-toggle').dropdown()
 });

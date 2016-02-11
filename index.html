@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/gmaps.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 </head>
 <body ng-controller="apresController">
@@ -65,13 +66,12 @@
 
 <div class="card-deck-wrapper container-fluid cardText">
   <div class="card-deck">
-    <div class="card col-lg-4">
+    <div class="card col-lg-4 snowSnap">
 <!--     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
- -->    <div class="card-block">
+ -->    <div class="card-block ">
       <h4 class="card-title">Snow SnapShot</h4>
       <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions.</p>
-
-      <div class="snowSnap">
+      <div>
         <ul class="snowSnapText" ng-repeat="mtn in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
           <li><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></li>
           <li class="snowSnapName">{{mtn.name}}</li>
@@ -80,16 +80,15 @@
          <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{getIcon(mtn)}}"></li>
         </ul>
       </div>
-
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
 
-<div class="card col-lg-4">
+<div class="trafficSnap card col-lg-4 embed-responsive embed-responsive-16by9">
     <div class="card-block">
       <h4 class="title">Traffic SnapShot</h4>
       <p class="text">Check your travel time to your resort of choice.</p>
-          <div class="trafficSnapInput" id="floating-panel" style="position: absolute; left: 0">
+          <div id="floating-panel" style="position: absolute; left: 0">
             <strong>Your Location:</strong>
             <select id="start">
               <option value="denver, co">Denver</option>
@@ -110,20 +109,19 @@
       </div>
     </div>
 
-  <div class="card col-lg-4">
+  <div class="card col-lg-4 apresSnap">
 <!--     <img class="card-img-top" src="http://placehold.it/300x180" alt="Card image cap">
  -->    <div class="card-block">
       <h4 class="card-title">Today's Apr&eacutes SnapShot</h4>
         <p class="card-text">The best way to end a say on the slopes?  How about some food, beverage, or live entertainment?</p>
-      <div class="apresSnap">
-        <ul class="apresSnapText" ng-repeat="apres in eventPromoArray | orderBy:'date' | limitTo: 10 ">
+      <div class="apresSnapText">
+        <ul class="" ng-repeat="apres in eventPromoArray | orderBy:'date' | limitTo: 10 ">
           <li class="apresSnapName">{{apres.name}}</li>
           <li class="apresSnapCity">{{apres.city}}</li>
           <li class="apresSnapType">{{apres.type}}</li>
           <li class="apresSnapPromo">{{apres.promotion}}</li>
         </ul>
       </div>
-
       <p class="card-text"><small class="text-muted">Last updated 5 hours ago</small></p>
     </div>
   </div>
@@ -131,23 +129,9 @@
 </div>
 
 <!-- TRAFFIC  -->
-<div class="card-deck-wrapper container-fluid cardText">
-  <div class="card-deck">
-    
-   </div>
-</div>
-<!--       <form class="trafficSnap">
-        <input type="address" placeholder="Enter Your Starting Point" ng-model="addy">
-        {{addy}}
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Mountain Destination
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li class="dropList" ng-repeat="mtn in mtnsArray"><a data-target="#" on-change="calcRoute()" ng-click="selectMtnDirx($index)">{{mtn.name}}</a></li>
-          </ul>
-        </div>
-      </form> -->
+<div class="card-deck-wrapper container-fluid cardText mapContain">
 
+</div>
 <!-- FOOTER -->
 
 <footer class="footer navbar-inverse">

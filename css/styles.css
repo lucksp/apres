@@ -114,7 +114,6 @@ body {
 /* *** SNOW SNAPSHOT *** */
 
 .snowSnap {
-	display: table;
 	background-color: rgba(255, 255, 255, .25);
 	overflow: hidden;
 	padding: 15px 25px;
@@ -168,24 +167,21 @@ body {
 /* *** APRES SNAPSHOT *** */
 
 .apresSnap {
-	display: table;
 	background-color: rgba(255, 255, 255, .25);
 	padding: 15px 25px;
-	overflow: hidden;
 /*	display: inline-flexbox;
 	justify-content: space-around;*/
 }
 
-.apresSnap ul {
+.apresSnapText ul {
 	padding-left: 0px;
 /*	margin: 15px 25px;
 */}
 
-.apresSnap li {
-	display: table-cell;
-	list-style-type: none;
-	/*	display: inline;
-	flex: 1 1 auto;*/
+.apresSnapText li {
+	display: inline;
+		list-style-type: none;
+	/*flex: 1 1 auto;*/
 }
 
 .apresSnap .apresSnapName {
@@ -209,6 +205,7 @@ body {
 	padding-right: 15px;
 	font-size: 1.5rem;
 }
+
 
 /*  **** PAGE: SNOW REPORT**** */
 
@@ -337,88 +334,6 @@ body {
 	list-style-type: none;
 
 }*/
-
-
-/* *** TRAFFIC SNAP *** */
-
-/*.trafficSnap {
-	padding: 25px;
-}
-
-.trafficSnap input {
-	width: 200px;
-	margin-right: 15px;
-}*/
-
-#map {
-	object-fit: cover;
-	width: 600px;
-    height: 350px;
-}
-
-#floating-panel {
-  position: absolute;
-  top: 10px;
-  left: 0%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center;
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
-}
-
-#right-panel {
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
-}
-
-#right-panel select, #right-panel input {
-  font-size: 15px;
-}
-
-#right-panel select {
-  width: 100%;
-}
-
-#right-panel i {
-  font-size: 12px;
-}
-
-      #right-panel {
-        height: 100%;
-		text-align: center;
-		width: 600px;
-        overflow: auto;
-      }
-
-      #map {
-        margin-right: 400px;
-      }
-
-      #floating-panel {
-        background: #fff;
-        padding: 5px;
-        font-size: 14px;
-        font-family: Arial;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-        display: none;
-      }
-
-      @media print {
-        #map {
-          height: 500px;
-          margin: 0;
-        }
-
-        #right-panel {
-          float: none;
-          width: auto;
-        }
 
 
 /*  FOOTER  */

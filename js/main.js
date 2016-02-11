@@ -1,10 +1,10 @@
 angular.module('apresApp', [])
 
 angular.module('apresApp')
-	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', function($scope, mtnFactory, eventPromoFactory){
+	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', 'dateFactory', function($scope, mtnFactory, eventPromoFactory, dateFactory){
 
 
-// **** SKI RESORT FUNCTIONS ****
+// **** SKI RESORT PAGE FUNCTIONS ****
 
 		var returnMtns = function(responseMtn) {
 			if (mtnFactory.mtnsData.length === 0){
@@ -22,8 +22,39 @@ angular.module('apresApp')
  	$scope.sortSnowReverse  = true;  // set the default sort order
 	$scope.searchSnowData   = '';     // set the default search/filter term
 
+// MODAL FUNCTION
 
-// **** APRES EVENTS/PROMO FUNCTIONS ****
+$scope.modalDetails = function(mtn) {
+	$scope.selectedMtn = mtn
+}
+
+$scope.snowApres = function(){	
+	if ($scope.selectedMtn) {
+		return _.filter($scope.eventPromoArray, function(promo){
+			if ($scope.selectedMtn.zip == promo.zip) {
+				return promo
+			}
+		})
+	}
+	else {
+		return []
+	}
+}
+
+// SKI REPORT PAGE ==== MODAL POP
+
+	$scope.couponInputAppear = false;
+	$scope.couponSuccess = false;
+	$scope.couponClick = function() {
+		$scope.couponInputAppear = !$scope.couponInputAppear;
+		}
+	$scope.submitClick = function(){
+					$scope.couponSuccess = !$scope.couponSuccess;
+					$scope.couponInputAppear = !$scope.couponInputAppear;
+	}
+
+
+// **** APRES EVENTS/PROMO PAGE FUNCTIONS ****
 
 		var returnApres = function(responseApres) {
 			if (eventPromoFactory.eventPromoArray.length === 0){
@@ -40,6 +71,47 @@ angular.module('apresApp')
 	$scope.sortApresType     = 'date'; // set the default sort type
  	$scope.sortApresReverse  = false;  // set the default sort order
 	$scope.searchApresData   = '';     // set the default search/filter term
+
+
+//  ===== DATES/CALENDAR
+
+$scope.today = new Date();
+
+$scope.nextDay = function(){
+			return {
+				dateAdder 		: $scope.today.setDate($scope.today.getDate() + 1),	
+			}
+		}
+$scope.prevDay = function(){
+			return {
+				dateSubtr 		: $scope.nextDay.setDate($scope.nextDay.getDate() - 1)
+			}
+		}
+
+$scope.calendarArray = []
+
+$scope.addDayClicker = function(){
+	$scope.calendarArray.push($scope.nextDay())
+}
+
+//    **** LEFT CLICK TO REMOVE DAYS NOT FINISHED ****
+// $scope.subtrDayClicker = function(){
+// 	$scope.calendarArray.pop($scope.nextDay())
+// }
+
+
+//    ****  COMPLETE ONLY SHOWING APRES FOR CURRENT DAY ****
+// $scope.dayOfApres = function(promo){	
+// 	if ($scope.eventPromoArray.date == $scope.today) {
+// 		console.log('today')
+// 		return promo
+// 		}
+// 	}
+// 	else {
+// 		return 'nope'
+// 	}
+// }
+
 
 // WEATHER ICONS
 
@@ -106,42 +178,6 @@ angular.module('apresApp')
 		return '../img/icon_snow.png';
 	}
 }
-
-$scope.baseDate = new Date();
-// $scope.dateAdder = function(){
-// 			return $scope.baseDate.getDate() + 1
-
-
-$scope.modalDetails = function(mtn) {
-	$scope.selectedMtn = mtn
-}
-
-$scope.snowApres = function(){	
-	if ($scope.selectedMtn) {
-		return _.filter($scope.eventPromoArray, function(promo){
-			if ($scope.selectedMtn.zip == promo.zip) {
-				return promo
-			}
-		})
-	}
-	else {
-		return []
-	}
-}
-
-adfadfds
-
-	$scope.couponInputAppear = false;
-	$scope.couponSuccess = false;
-	$scope.couponClick = function() {
-		$scope.couponInputAppear = !$scope.couponInputAppear;
-		}
-	$scope.submitClick = function(){
-					$scope.couponSuccess = !$scope.couponSuccess;
-					$scope.couponInputAppear = !$scope.couponInputAppear;
-	}
-
-
 
 }]);
 
