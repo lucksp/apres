@@ -125,21 +125,25 @@
             <h4 class="modal-title" id="myModalLabel">More Information About {{selectedMtn.name}}</h4>
           </div>
       <div class="modal-body">
-        <ul>
-          <li>3 Day Forecast</li>
-          <li>{{selectedMtn.HiTwo}}&deg/{{selectedMtn.LowTwo}}&deg<br>{{selectedMtn.HiThree}}&deg/{{selectedMtn.LowThree}}&deg<br>{{selectedMtn.HiTwo}}&deg/{{selectedMtn.HiTwo}}&deg</li>
+          <h4>3 Day Forecast</h4>
+        <ul class="forecastList modalInfo">
+          <li>{{selectedMtn.HiTwo}}&deg/{{selectedMtn.LowTwo}}&deg <img class="modalWeatherIcon" ng-src="{{getForecastIconTwo(selectedMtn)}}"></li>
+          <li>{{selectedMtn.HiThree}}&deg/{{selectedMtn.LowThree}}&deg  <img class="modalWeatherIcon" ng-src="{{getForecastIconThree(selectedMtn)}}"></li>
+          <li>{{selectedMtn.HiOne}}&deg/{{selectedMtn.HiOne}}&deg  <img class="modalWeatherIcon" ng-src="{{getForecastIconOne(selectedMtn)}}"></li>
         </ul>
         <h3>Apres Deals & Promotions for {{baseDate | date: 'mediumDate'}}:</h3>
         <ul class="modalInfo" ng-repeat="apres in snowApres()">
           <li>{{apres.name}}</li>
           <li>{{apres.type}}</li>
           <li>{{apres.promotion}}</li>
-          <li class="code">GET COUPON CODE <span class="fa fa-caret-down"></span><span class="fa fa-caret-up"></span></li>
+          <li class="code" ng-click="couponClick()">GET COUPON CODE <span class="fa fa-caret-down" ng-hide="couponInputAppear"></span><span class="fa fa-caret-up" ng-show="couponInputAppear"></span></li>
         </ul>
-        <form>
+        <form class="couponForm" ng-show="couponInputAppear">
           <h4>We'll Text You a Code</h4>
-          <input type="tel"></input><input type="submit" value="submit"></input>
+          <input type="tel"></input><button class="couponBtn" type="button" value="submit" ng-click="submitClick()">Submit</button>
         </form>
+          <p class="couponSuccess" ng-show="couponSuccess">Success! Have a fun time.</p>
+
       </div>
     </div>
   </div>

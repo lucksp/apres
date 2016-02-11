@@ -59,6 +59,54 @@ angular.module('apresApp')
 	}
 }
 
+	$scope.getForecastIconOne = function(selectedMtn){
+
+	if(selectedMtn.IconOne == 1){
+		return '../img/icon_sunny.png';
+	}
+	else if(selectedMtn.IconOne == 2){
+		return '../img/icon_mostlysunny.png';
+	}
+	else if(selectedMtn.IconOne == 3){
+		return '../img/icon_overcast.png';
+	}
+	else {
+		return '../img/icon_snow.png';
+	}
+}
+
+	$scope.getForecastIconTwo = function(selectedMtn){
+
+	if(selectedMtn.IconTwo == 1){
+		return '../img/icon_sunny.png';
+	}
+	else if(selectedMtn.IconTwo == 2){
+		return '../img/icon_mostlysunny.png';
+	}
+	else if(selectedMtn.IconTwo == 3){
+		return '../img/icon_overcast.png';
+	}
+	else {
+		return '../img/icon_snow.png';
+	}
+}
+
+	$scope.getForecastIconThree = function(selectedMtn){
+
+	if(selectedMtn.IconThree == 1){
+		return '../img/icon_sunny.png';
+	}
+	else if(selectedMtn.IconThree == 2){
+		return '../img/icon_mostlysunny.png';
+	}
+	else if(selectedMtn.IconThree == 3){
+		return '../img/icon_overcast.png';
+	}
+	else {
+		return '../img/icon_snow.png';
+	}
+}
+
 $scope.baseDate = new Date();
 // $scope.dateAdder = function(){
 // 			return $scope.baseDate.getDate() + 1
@@ -80,6 +128,18 @@ $scope.snowApres = function(){
 		return []
 	}
 }
+
+
+	$scope.couponInputAppear = false;
+	$scope.couponSuccess = false;
+	$scope.couponClick = function() {
+		$scope.couponInputAppear = !$scope.couponInputAppear;
+		}
+	$scope.submitClick = function(){
+					$scope.couponSuccess = !$scope.couponSuccess;
+					$scope.couponInputAppear = !$scope.couponInputAppear;
+	}
+
 
 
 }]);

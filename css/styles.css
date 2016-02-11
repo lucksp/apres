@@ -252,6 +252,32 @@ body {
 .modalInfo li {
 	list-style-type: none;
 }
+
+.modalWeatherIcon {
+	width: 50px;
+}
+
+.couponForm {
+	text-align: center;
+}
+
+.couponForm button {
+	background-color: white;
+	color: #f0ad4e;
+	border: 1px solid #f0ad4e;
+	border-radius: 5px;
+}
+
+.couponForm button:hover {
+	background-color: #f0ad4e;
+	color: white;
+}
+
+.couponSuccess {
+	text-align: center;
+	font-size: 1.5rem;
+}
+
 /*  **** PAGE: APRES **** */
 
 .apresTableHead img {
