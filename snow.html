@@ -109,7 +109,7 @@
           <td>{{mtn.lifts}}</td>
           <td>{{mtn.trails}}</td>
           <td>{{mtn.lastSnow}}"</td>
-          <td>Hi/Low: {{mtn.hi}}&deg/{{mtn.low}}&deg<br>{{mtn.description}}</br><br><img alt="weather Icon" class="mtnLogo" ng-src="{{getIcon(mtn)}}"></br></td>
+          <td>Hi: {{mtn.hi}}&deg<br>Low: {{mtn.low}}&deg<br>{{mtn.description}}</br><br><img alt="weather Icon" class="mtnLogo" ng-src="{{getIcon(mtn)}}"></br></td>
          <td><button type="button" class="btn btn-primary btn-lg modalBtn" data-toggle="modal" data-target="#myModal" ng-click="modalDetails(mtn)">+</button></td>
         </tr>
         <tr>
@@ -133,11 +133,11 @@
           <li>{{selectedMtn.HiOne}}&deg/{{selectedMtn.HiOne}}&deg  
             <img class="modalWeatherIcon" ng-src="{{getForecastIconOne(selectedMtn)}}"></li>
         </ul>
-        <h3>Apres Deals & Promotions for {{baseDate | date: 'mediumDate'}}:</h3>
-        <ul class="modalInfo" ng-repeat="apres in snowApres()">
-          <li>{{apres.name}}</li>
-          <li>{{apres.type}}</li>
-          <li>{{apres.promotion}}</li>
+        <h3>Apres Deals & Promotions for {{ today | date: 'mediumDate'}}:</h3>
+        <ul class="modalInfo" ng-repeat="apresList in snowApres()">
+          <li>{{apresList.name}}</li>
+          <li>{{apresList.type}}</li>
+          <li>{{apresList.promotion}}</li>
           <li class="code" ng-click="couponClick()">GET COUPON CODE <span class="fa fa-caret-down" ng-hide="couponInputAppear"></span><span class="fa fa-caret-up" ng-show="couponInputAppear"></span></li>
         </ul>
         <form class="couponForm" ng-show="couponInputAppear">
@@ -154,17 +154,25 @@
   <!-- FOOTER -->
 
 <footer class="footer navbar-inverse">
-      <div class="container-fluid">
-        <p class="copy text-muted">&copy 2016 | PhLucks</p>
-      </div>
+    <div class="container-fluid footRow">
+      <form class="form-inline signUp">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+              <button type="submit" class="btn btn-primary">Sign Up For Alerts</button>
+        </div>
+      </form>
+        <div class="row copy">
+          <p class=" text-muted">&copy 2016 | PhLucks</p>
+        </div>
+  </div>
 </footer>
-
-
 
 </body>
 
+
 <!-- SCRIPTS -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
@@ -172,4 +180,6 @@
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
+  <script type="text/javascript" src="js/dateFactory.js"></script>
+
 </html>

@@ -56,31 +56,17 @@
 
 <div class="container calendar">
   <div class="row">
-    <h3><span class="glyphicon glyphicon-chevron-left" ng-click="subtrDayClicker()"> <span class="calendarDay">{{today | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right" ng-click="addDayClicker(); details(apresList)"></h3>
+    <h3><span class="glyphicon glyphicon-chevron-left" ng-click="subtrDayClicker()"></span> <span class="calendarDay">{{today | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right" ng-click="addDayClicker(); details(apresList)"></span></h3>
+    <a class="btn btn-primary btn-lg" role="button" ng-click="todayClicker()">Back to Today</a>
   </div>
-  <tr ng-repeat="apresDay in eventPromoArray()">
+  <!-- <tr ng-repeat="apresDay in dayOfApres()">
           <th scope="row">{{apresDay.name}}</th>
           <td>{{apresDay.city}}</td>
           <td>{{apresDay.type}}</td>
           <td>{{apresDay.category}}</td>
           <td>{{apresDay.rating}}</td>
-          <td>{{apresDay.promotion}}</td>
+          <td>{{apresDay.promotion}}</td> -->
 </div>
-
-<!-- <div class="container calendarList">
-  <div class="row" ng-repeat="apresList in eventPromoArray">
-    <dl class="dl-horizontal">
-      <dt></dt>
-      <dd>{{apresList.name}}</dd>
-      <dd>{{apresList.city}}</dd>
-      <dd>{{apresList.type}}</dd>
-      <dd>{{apresList.category}}</dd>
-      <dd>{{apresList.rating}}</dd>
-      <dd>{{apresList.promotion}}</dd>
-    </dl>
-
-  </div>
-</div> -->
 
 <div class="container apresTable">
     <table class="table">
@@ -138,15 +124,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="apresList in eventPromoArray | orderBy:sortApresType:sortApresReverse | filter:searchApresData">
-          <th  scope="row">{{apresList.name}}</th>
+        <tr ng-repeat="apresList in dayOfApres() | orderBy:sortApresType:sortApresReverse | filter:searchApresData">
+          <th scope="row">{{apresList.name}}</th>
           <td>{{apresList.city}}</td>
           <td>{{apresList.type}}</td>
           <td>{{apresList.category}}</td>
           <td>{{apresList.rating}}</td>
           <td>{{apresList.promotion}}</td>
-<!--           <td>{{apresList.date | date: shortDate }}</td>
- -->          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
+          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
         </tr>
         <tr>
       </tbody>
@@ -157,25 +142,32 @@
 <!-- FOOTER -->
 
 <footer class="footer navbar-inverse">
-      <div class="container-fluid">
-        <p class="copy text-muted">&copy 2016 | PhLucks</p>
-      </div>
+    <div class="container-fluid footRow">
+      <form class="form-inline signUp">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+              <button type="submit" class="btn btn-primary">Sign Up For Alerts</button>
+        </div>
+      </form>
+        <div class="row copy">
+          <p class=" text-muted">&copy 2016 | PhLucks</p>
+        </div>
+  </div>
 </footer>
-
-
 
 </body>
 
 <!-- SCRIPTS -->
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  <script type="text/javascript" src="js/resortData.js"></script>
+
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
   <script type="text/javascript" src="js/eventPromoFactory.js"></script>
   <script type="text/javascript" src="js/dateFactory.js">
-$(document).ready(function() {
-    $('dropdown-toggle').dropdown()
-});
+
 </script>
 </html>

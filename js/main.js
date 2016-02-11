@@ -1,8 +1,9 @@
 angular.module('apresApp', [])
 
 angular.module('apresApp')
-	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', 'dateFactory', function($scope, mtnFactory, eventPromoFactory, dateFactory){
+	.controller('apresController', ['$scope', 'mtnFactory', 'eventPromoFactory', function($scope, mtnFactory, eventPromoFactory){
 
+$scope.globalSearch = ''
 
 // **** SKI RESORT PAGE FUNCTIONS ****
 
@@ -21,38 +22,6 @@ angular.module('apresApp')
 	$scope.sortSnowType     = 'lastSnow'; // set the default sort type
  	$scope.sortSnowReverse  = true;  // set the default sort order
 	$scope.searchSnowData   = '';     // set the default search/filter term
-
-// MODAL FUNCTION
-
-$scope.modalDetails = function(mtn) {
-	$scope.selectedMtn = mtn
-}
-
-$scope.snowApres = function(){	
-	if ($scope.selectedMtn) {
-		return _.filter($scope.eventPromoArray, function(promo){
-			if ($scope.selectedMtn.zip == promo.zip) {
-				return promo
-			}
-		})
-	}
-	else {
-		return []
-	}
-}
-
-// SKI REPORT PAGE ==== MODAL POP
-
-	$scope.couponInputAppear = false;
-	$scope.couponSuccess = false;
-	$scope.couponClick = function() {
-		$scope.couponInputAppear = !$scope.couponInputAppear;
-		}
-	$scope.submitClick = function(){
-					$scope.couponSuccess = !$scope.couponSuccess;
-					$scope.couponInputAppear = !$scope.couponInputAppear;
-	}
-
 
 // **** APRES EVENTS/PROMO PAGE FUNCTIONS ****
 
@@ -73,7 +42,41 @@ $scope.snowApres = function(){
 	$scope.searchApresData   = '';     // set the default search/filter term
 
 
-//  ===== DATES/CALENDAR
+// MODAL FUNCTION
+
+$scope.searchSite = ''
+
+$scope.modalDetails = function(mtn) {
+	$scope.selectedMtn = mtn
+}
+$scope.snowApres = function(){	
+	if ($scope.selectedMtn) {
+		var tempZip = []
+		_.filter($scope.eventPromoArray, function(promo){
+			if ($scope.selectedMtn.zip == promo.zip && (new Date(promo.date).getDate() == $scope.today.getDate() && new Date(promo.date).getDay() == $scope.today.getDay() && new Date(promo.date).getFullYear() == $scope.today.getFullYear())) {
+				tempZip.push(promo)
+			}
+		})
+		return tempZip
+	}
+	else {
+		return []
+	}
+}
+
+// SKI REPORT PAGE ==== MODAL POP
+
+	$scope.couponInputAppear = false;
+	$scope.couponSuccess = false;
+	$scope.couponClick = function() {
+		$scope.couponInputAppear = !$scope.couponInputAppear;
+		}
+	$scope.submitClick = function(){
+					$scope.couponSuccess = !$scope.couponSuccess;
+					$scope.couponInputAppear = !$scope.couponInputAppear;
+	}
+
+//  ===== DATES/CALENDAR VIEWS
 
 $scope.today = new Date();
 
@@ -84,37 +87,39 @@ $scope.nextDay = function(){
 		}
 $scope.prevDay = function(){
 			return {
-				dateSubtr 		: $scope.nextDay.setDate($scope.nextDay.getDate() - 1)
+				dateSubtr 		: $scope.today.setDate($scope.today.getDate() - 1)
 			}
 		}
 
 $scope.calendarArray = []
 
-$scope.addDayClicker = function(){
-	$scope.calendarArray.push($scope.nextDay())
+$scope.todayClicker = function(){
+	$scope.today = new Date();
 }
 
-//    **** LEFT CLICK TO REMOVE DAYS NOT FINISHED ****
-// $scope.subtrDayClicker = function(){
-// 	$scope.calendarArray.pop($scope.nextDay())
-// }
+$scope.addDayClicker = function(){
+	$scope.nextDay()
+}
+$scope.subtrDayClicker = function(){
+	$scope.prevDay()
+}
 
 
-//    ****  COMPLETE ONLY SHOWING APRES FOR CURRENT DAY ****
-// $scope.dayOfApres = function(promo){	
-// 	if ($scope.eventPromoArray.date == $scope.today) {
-// 		console.log('today')
-// 		return promo
-// 		}
-// 	}
-// 	else {
-// 		return 'nope'
-// 	}
-// }
-
+$scope.dayOfApres = function(){
+	if ($scope.eventPromoArray) {
+		return $scope.eventPromoArray.filter(function(todayPromo) {
+			if (new Date(todayPromo.date).getDate() == $scope.today.getDate() && new Date(todayPromo.date).getDay() == $scope.today.getDay() && new Date(todayPromo.date).getFullYear() == $scope.today.getFullYear()) {
+				return true
+			}
+			else {
+				return false
+			}
+		})
+	}
+};	
 
 // WEATHER ICONS
-
+$scope.selectedMtn = {}
 	$scope.getIcon = function(mtn){
 
 	if(mtn.IconOne == 1){
@@ -132,7 +137,6 @@ $scope.addDayClicker = function(){
 }
 
 	$scope.getForecastIconOne = function(selectedMtn){
-
 	if(selectedMtn.IconOne == 1){
 		return '../img/icon_sunny.png';
 	}

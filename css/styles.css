@@ -11,6 +11,10 @@ body {
 	width: 100vw;
 }
 
+.navbar a {
+	font-size: 1.5rem;
+}
+
 .logo {
 	position: absolute;
 	top: 0;
@@ -63,26 +67,29 @@ body {
 }
 
 .jumbotronLeft {
-	width: 50vw;
+	width: 50%;
 	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_snow_Fotor.jpg');
 	background-size: cover;
+	background-position: center;
 	position: absolute;
 	left: 0;
 	display: inline;
 }
 .jumbotronRight {
-	width: 50vw;
+	width: 50%;
 	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_town_Fotor.jpg');
 	background-size: cover;
+	background-position: center;
 	position: relative;
 	float: right;
 	right: 0;
 	display: inline-block;
 }
+
 
 /*  **** CONTENT****  */
 
@@ -117,9 +124,6 @@ body {
 	background-color: rgba(255, 255, 255, .25);
 	overflow: hidden;
 	padding: 15px 25px;
-	/*	display: inline-flexbox;
-	justify-content: space-around;
-*/
 }
 
 .snowSnap ul {
@@ -129,9 +133,6 @@ body {
 
 .snowSnap li {
 	display: table-cell;
-/*	display: inline;
-	flex: 1 1 auto;
-	list-style-type: none;*/
 }
 
 .snowSnap .snowSnapName {
@@ -162,6 +163,24 @@ body {
 
 .mtnName {
 	font-weight: bold;
+}
+
+.fullReportBtn {
+	background-color: #BF55EC;
+    border-color: #3FC380;
+    float: right;
+}
+
+.fullReportBtn:hover {
+	background-color: #3FC380;
+	border-color: #BF55EC,
+}
+
+/* **** TRAFFIC SNAPSOT **** */
+
+.trafficSnap {
+	padding: 1px 1px;
+  height: auto;
 }
 
 /* *** APRES SNAPSHOT *** */
@@ -237,8 +256,8 @@ body {
 }
 
 .modalBtn:hover {
-	background-color: #2ECC71;
-}
+	background-color: #3FC380;
+	border-color: #BF55EC,}
 
 .code {
 	font-size: 1.75rem;
@@ -324,26 +343,28 @@ body {
 	font-size: 4rem;
 }
 
-/*.calendarList dl {
-	color: #ecf0f1;
-		  display: table;
-
-}
-
-.calendarList dd {
-	list-style-type: none;
-
-}*/
-
 
 /*  FOOTER  */
 
-.footer .navbar-inverse {
+.footRow {
+    position:absolute;
+    left:50%;
+    padding: 30px 0;
+}
+
+.footer {
 	border-top: 4px solid rgba(149, 255, 222, 1);
-	padding: 30px;
 }	
 
 .footer p {
-	font-size: 1rem;
-	text-align: center;
+	font-size: 1.25rem;
+	position: relative;
+	left: -50%
+	margin-top: 30px;
 }
+
+.signUp {
+	position: relative;
+	left: -50%
+}
+

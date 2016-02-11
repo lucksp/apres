@@ -1,17 +1,13 @@
 /* *** TRAFFIC SNAP *** */
 
-.trafficSnap {
-	padding: 1px 1px;
-  height: auto;
-}
 
 #map {
-	width: 33.33vw;
+	width: 100%;
   height: 600px;
 }
 
 #floating-panel {
-  position: relative;
+  position: absolute;
   top: 10px;
   left: 0%;
   z-index: 5;
@@ -63,9 +59,9 @@
         display: none;
       }
 
-      @media screen (min-width: 970px) {
+      @media screen (max-width: 970px) {
         #map {
-          width: 100vw;
+          min-width: 100vw;
           height: 500px;
           margin: 0;
           padding: 0;
