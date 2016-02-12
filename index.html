@@ -9,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/gmaps.css">
 </head>
+<div class="warning" ng-hide="warningMessage">
+  <h4>This site is for reference only.  None of the data is real.</h4>
+  <p ng-click="warningClicker()">Click Here to Close</p>
+</div>
 <body ng-controller="apresController">
 
 <nav class="navbar navbar-inverse">

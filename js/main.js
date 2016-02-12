@@ -123,13 +123,13 @@ $scope.selectedMtn = {}
 	$scope.getIcon = function(mtn){
 
 	if(mtn.IconOne == 1){
-		return '../img/icon_sunny.png';
+		return 'img/icon_sunny.png';
 	}
 	else if(mtn.IconOne == 2){
-		return '../img/icon_mostlysunny.png';
+		return 'img/icon_mostlysunny.png';
 	}
 	else if(mtn.IconOne == 3){
-		return '../img/icon_overcast.png';
+		return 'img/icon_overcast.png';
 	}
 	else {
 		return '../img/icon_snow.png';
@@ -138,49 +138,54 @@ $scope.selectedMtn = {}
 
 	$scope.getForecastIconOne = function(selectedMtn){
 	if(selectedMtn.IconOne == 1){
-		return '../img/icon_sunny.png';
+		return 'img/icon_sunny.png';
 	}
 	else if(selectedMtn.IconOne == 2){
-		return '../img/icon_mostlysunny.png';
+		return 'img/icon_mostlysunny.png';
 	}
 	else if(selectedMtn.IconOne == 3){
-		return '../img/icon_overcast.png';
+		return 'img/icon_overcast.png';
 	}
 	else {
-		return '../img/icon_snow.png';
+		return 'img/icon_snow.png';
 	}
 }
 
 	$scope.getForecastIconTwo = function(selectedMtn){
 
 	if(selectedMtn.IconTwo == 1){
-		return '../img/icon_sunny.png';
+		return 'img/icon_sunny.png';
 	}
 	else if(selectedMtn.IconTwo == 2){
-		return '../img/icon_mostlysunny.png';
+		return 'img/icon_mostlysunny.png';
 	}
 	else if(selectedMtn.IconTwo == 3){
-		return '../img/icon_overcast.png';
+		return 'img/icon_overcast.png';
 	}
 	else {
-		return '../img/icon_snow.png';
+		return 'img/icon_snow.png';
 	}
 }
 
 	$scope.getForecastIconThree = function(selectedMtn){
 
 	if(selectedMtn.IconThree == 1){
-		return '../img/icon_sunny.png';
+		return 'img/icon_sunny.png';
 	}
 	else if(selectedMtn.IconThree == 2){
-		return '../img/icon_mostlysunny.png';
+		return 'img/icon_mostlysunny.png';
 	}
 	else if(selectedMtn.IconThree == 3){
-		return '../img/icon_overcast.png';
+		return 'img/icon_overcast.png';
 	}
 	else {
-		return '../img/icon_snow.png';
+		return 'img/icon_snow.png';
 	}
+}
+
+$scope.warningMessage = false
+$scope.warningClicker = function(){
+	$scope.warningMessage = true
 }
 
 }]);
