@@ -409,7 +409,7 @@ body {
 .adp-summary {
 	color: #1abc9c;
 	font-size: 2.5rem;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .adp-substep, .adp-placemark, .adp-legal {

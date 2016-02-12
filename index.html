@@ -104,14 +104,14 @@
     <div class="card-block">
       <h4 class="title">Traffic SnapShot</h4>
         <p class="text">Check your travel time to your resort of choice.</p>
-          <div id="floating-panel" style="position: absolute; left: 0">
+          <div id="floating-panel">
             <strong>Your Location:</strong>
               <input type="text" id="start"></input>
                 <br>
             <strong>Your Destination:</strong>
               <select id="end">
                 <option value="">Select</option>
-                <option ng-repeat="mtn in mtnsArray" value="{{mtn.name}}">{{mtn.name}}</option>
+                <option ng-repeat="mtn in mtnsArray" value="{{mtn.name}}, {{mtn.state}}, {{mtn.zip}}">{{mtn.name}}</option>
               </select>
           </div>
       <div id="map"></div>
