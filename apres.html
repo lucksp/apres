@@ -4,6 +4,8 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-controller="apresController">
@@ -56,16 +58,9 @@
 
 <div class="container calendar">
   <div class="row">
-    <h3><span class="glyphicon glyphicon-chevron-left" ng-click="subtrDayClicker()"></span> <span class="calendarDay">{{today | date: 'mediumDate'}}</span> <span class="glyphicon glyphicon-chevron-right" ng-click="addDayClicker(); details(apresList)"></span></h3>
-    <a class="btn btn-primary btn-lg" role="button" ng-click="todayClicker()">Back to Today</a>
+    <h3><span class="glyphicon glyphicon-chevron-left dayArrow" ng-click="subtrDayClicker()"></span> <span class="calendarDay">{{today | date: 'fullDate'}}</span> <span class="glyphicon glyphicon-chevron-right dayArrow" ng-click="addDayClicker(); details(apresList)"></span></h3>
+    <a class="btn btn-primary btn-lg todayBtn" role="button" ng-click="todayClicker()">Back to Today</a>
   </div>
-  <!-- <tr ng-repeat="apresDay in dayOfApres()">
-          <th scope="row">{{apresDay.name}}</th>
-          <td>{{apresDay.city}}</td>
-          <td>{{apresDay.type}}</td>
-          <td>{{apresDay.category}}</td>
-          <td>{{apresDay.rating}}</td>
-          <td>{{apresDay.promotion}}</td> -->
 </div>
 
 <div class="container apresTable">
@@ -97,30 +92,11 @@
             <span ng-show="sortApresType == 'category' && sortApresReverse" class="fa fa-caret-up"></span>
           </td>
           <td>
-            <a href="#" ng-click="sortApresType = 'rating'; sortApresReverse = !sortApresReverse">
-              Rating
-            <span ng-show="sortApresType == 'rating' && !sortApresReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortApresType == 'rating' && sortApresReverse" class="fa fa-caret-up"></span>
-          </td>
-          <td>
             <a href="#" ng-click="sortApresType = 'promo'; sortApresReverse = !sortApresReverse">
               Promotion
             <span ng-show="sortApresType == 'promo' && !sortApresReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortApresType == 'promo' && sortApresReverse" class="fa fa-caret-up"></span>
           </td>
-          <!-- <td>
-            <a href="#" ng-click="sortApresType = 'code'; sortApresReverse = !sortApresReverse">
-              Code
-            <span ng-show="sortApresType == 'code' && !sortApresReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortApresType == 'code' && sortApresReverse" class="fa fa-caret-up"></span>
-          </td> -->
-          <!-- <td>
-            <a href="#" ng-click="sortApresType = 'date'; sortApresReverse = !sortApresReverse">
-              Date
-            <span ng-show="sortApresType == 'date' && !sortApresReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortApresType == 'date' && sortApresReverse" class="fa fa-caret-up"></span>
-          </td> -->
-          <td><a>Pin It!</a></td>
         </tr>
       </thead>
       <tbody>
@@ -129,9 +105,7 @@
           <td>{{apresList.city}}</td>
           <td>{{apresList.type}}</td>
           <td>{{apresList.category}}</td>
-          <td>{{apresList.rating}}</td>
           <td>{{apresList.promotion}}</td>
-          <td><span class="glyphicon glyphicon-ok-circle"></span></td>
         </tr>
         <tr>
       </tbody>

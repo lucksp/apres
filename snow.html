@@ -4,6 +4,8 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-controller="apresController">
@@ -103,8 +105,8 @@
       </thead>
       <tbody class="tableContent">
         <tr ng-repeat="mtn in mtnsArray | orderBy:sortSnowType:sortSnowReverse | filter:searchSnowData">
-          <th scope="row"><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></th>
-          <td>{{mtn.name}}</td>
+          <td><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></th>
+          <th scope="row">{{mtn.name}}</td>
           <td>{{mtn.city}}</td>
           <td>{{mtn.lifts}}</td>
           <td>{{mtn.trails}}</td>
@@ -120,7 +122,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="xBtn">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">More Information About {{selectedMtn.name}}</h4>
           </div>
       <div class="modal-body">
@@ -135,7 +137,7 @@
         </ul>
         <h3>Apres Deals & Promotions for {{ today | date: 'mediumDate'}}:</h3>
         <ul class="modalInfo" ng-repeat="apresList in snowApres()">
-          <li>{{apresList.name}}</li>
+          <li class="modalName">{{apresList.name}}</li>
           <li>{{apresList.type}}</li>
           <li>{{apresList.promotion}}</li>
           <li class="code" ng-click="couponClick()">GET COUPON CODE <span class="fa fa-caret-down" ng-hide="couponInputAppear"></span><span class="fa fa-caret-up" ng-show="couponInputAppear"></span></li>

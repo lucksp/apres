@@ -8,6 +8,7 @@ function initMap() {
     center: {lat: 39.0294737, lng: -105.54}
   });
   directionsDisplay.setMap(map);
+  // directionsDisplay.setPanel(null);
   directionsDisplay.setPanel(document.getElementById('right-panel'));
 
   var control = document.getElementById('floating-panel');

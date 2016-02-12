@@ -1,3 +1,7 @@
+* {
+	font-family: 'Noto Sans', sans-serif;
+}
+
 body {
 	background-color: #101010;
 }
@@ -43,6 +47,7 @@ body {
 	padding: 20px 40px;
 	margin-left: 20px;
 	margin-top: 200px;
+	font-family: 'Russo One', sans-serif;
 }
 
 .jumboTextRight {
@@ -53,6 +58,7 @@ body {
 	margin-right: 20px;
 	margin-top: 200px;
 	float: right;
+	font-family: 'Russo One', sans-serif;
 }
 
 .jumboText h1 {
@@ -114,9 +120,6 @@ body {
 	margin: 35px auto;
 	min-height: 375px;
 }
-/*
-.card:last-child {
-}*/
 
 /* *** SNOW SNAPSHOT *** */
 
@@ -178,6 +181,14 @@ body {
 
 /* **** TRAFFIC SNAPSOT **** */
 
+.trafficSnap h4 {
+	padding: 15px 25px;
+}
+
+.trafficSnap p {
+	padding-left: 25px;
+}
+
 .trafficSnap {
 	padding: 1px 1px;
   height: auto;
@@ -188,19 +199,15 @@ body {
 .apresSnap {
 	background-color: rgba(255, 255, 255, .25);
 	padding: 15px 25px;
-/*	display: inline-flexbox;
-	justify-content: space-around;*/
 }
 
 .apresSnapText ul {
 	padding-left: 0px;
-/*	margin: 15px 25px;
-*/}
+}
 
 .apresSnapText li {
 	display: inline;
 		list-style-type: none;
-	/*flex: 1 1 auto;*/
 }
 
 .apresSnap .apresSnapName {
@@ -235,7 +242,7 @@ body {
 }
 
 .snowTable a {
-	font-size: 1.75rem;
+	font-size: 2rem;
 	font-weight: bold;
 	color: #1abc9c;
 }
@@ -257,9 +264,11 @@ body {
 
 .modalBtn:hover {
 	background-color: #3FC380;
-	border-color: #BF55EC,}
+	border-color: #BF55EC
+}
 
 .code {
+	padding-top: 20px;
 	font-size: 1.75rem;
 	font-weight: bold;
 	color: #1abc9c;
@@ -271,6 +280,11 @@ body {
 
 .modalWeatherIcon {
 	width: 50px;
+}
+
+.modalName {
+	font-weight: bold;
+	font-size: 1.75rem;
 }
 
 .couponForm {
@@ -303,30 +317,44 @@ body {
 }
 
 .apresTable a {
-	font-size: 1.75rem;
+	font-size: 2rem;
 	font-weight: bold;
 	color: #1abc9c;
+}
+
+.apresTable tr {
+	height: 50px;
 }
 
 .apresTable tbody {
 	color: #ecf0f1;
 	font-size: 1.5rem;
+	/*background-color: rgba(255, 255, 255, .25)*/
 }
 
-.apresTable {
-	margin-top: 30px;
+.todayBtn {
+	background-color: #BF55EC;
+    border-color: #3FC380;
+    margin: 10px;
 }
 
-.glyphicon-ok-circle {
-	font-size: 24px;
+.todayBtn:hover {
+	background-color: #3FC380;
+	border-color: #BF55EC
+}
+
+.dayArrow {
 	color: #BF55EC;
-	vertical-align: middle;
-    display: table-cell
+}
+
+.dayArrow:hover {
+	color: #3FC380;
 }
 
 .calendar {
 	margin-top: 30px;
-	background-color: #ecf0f1;
+	/*background-color: #ecf0f1;*/
+	color: #ecf0f1;
 	text-align: center;
 	padding: 30px;
 }
@@ -343,6 +371,15 @@ body {
 	font-size: 4rem;
 }
 
+/*  MODAL  */
+.modal-header {
+	background-color: #101010;
+	color: #ecf0f1;
+}
+
+.xBtn {
+	color: #ecf0f1;
+}
 
 /*  FOOTER  */
 
@@ -366,5 +403,16 @@ body {
 .signUp {
 	position: relative;
 	left: -50%
+}
+
+/* MAPS */
+.adp-summary {
+	color: #1abc9c;
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+.adp-substep, .adp-placemark, .adp-legal {
+	display: none;
 }
 
