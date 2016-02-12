@@ -26,7 +26,7 @@ angular.module('apresApp')
 			eventPromoArray	:eventPromoArray,
 			EventPromoObj 	:EventPromoObj,
 				get 		:function(){
-			return $http.get('http://localhost:8000/apresdata.json')
+			return $http.get('apresdata.json')
 		}
 
 		}
