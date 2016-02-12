@@ -132,7 +132,7 @@ $scope.selectedMtn = {}
 		return 'img/icon_overcast.png';
 	}
 	else {
-		return '../img/icon_snow.png';
+		return 'img/icon_snow.png';
 	}
 }
 
