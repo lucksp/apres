@@ -21,6 +21,16 @@ body {
 	background-color: #101010;
 }
 
+.content {
+	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;  
+    -webkit-flex-flow: row wrap;
+  	flex-flow: row wrap;
+}
+
 /* NAV */
 
 .navbar {
@@ -48,12 +58,6 @@ body {
 }
 
 /* JUMBOTRON */
-
-.jumbotron {
-	padding: 0;	
-	margin-bottom: 0px;
-	border-bottom: 4px solid rgba(149, 255, 222, 1);
-}
 
 .jumboTextLeft {
 	color: black;
@@ -88,19 +92,20 @@ body {
 }
 
 .jumbotronLeft {
-	width: 50%;
-	height: 95vh;
+/*	width: 50%;
+*/	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_snow_Fotor.jpg');
 	background-size: cover;
 	background-position: center;
-	position: absolute;
+	position: relative;
 	left: 0;
-	display: inline;
+	/*display: inline-block;*/
+	border-bottom: 4px solid rgba(149, 255, 222, 1);
 }
 .jumbotronRight {
-	width: 50%;
-	height: 95vh;
+/*	width: 50%;
+*/	height: 95vh;
 	margin: 0;
 	background-image: url('../img/jumbo_town_Fotor.jpg');
 	background-size: cover;
@@ -108,7 +113,8 @@ body {
 	position: relative;
 	float: right;
 	right: 0;
-	display: inline-block;
+	/*display: inline-block;*/
+	border-bottom: 4px solid rgba(149, 255, 222, 1);
 }
 
 
@@ -214,6 +220,7 @@ body {
 .apresSnap {
 	background-color: rgba(255, 255, 255, .25);
 	padding: 15px 25px;
+	overflow: hidden;
 }
 
 .apresSnapText ul {
@@ -222,7 +229,7 @@ body {
 
 .apresSnapText li {
 	display: inline;
-		list-style-type: none;
+	list-style-type: none;
 }
 
 .apresSnap .apresSnapName {
@@ -431,3 +438,45 @@ body {
 	display: none;
 }
 
+
+/*MEDIA*/
+
+@media screen (min-width: 990px) {
+	.jumbotronLeft {
+		width: 50%;
+		height: 95vh;
+	}
+	.jumbotronRight {
+		width: 50%;
+		height: 95vh;
+	}
+}
+
+@media screen (max-width: 990px) {
+	.jumbotronLeft {
+		width: 100%;
+		height: auto;
+	}
+	.jumbotronRight {
+		width: 100%;
+		height: auto;
+	}
+
+	.jumboTextRight {
+		float: none;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.logo {
+		max-width: 65%;
+		left: 0px;
+		margin-left: 25px;
+		margin-right: none;
+	}
+		.logo img {
+		max-width: 30%;
+		/*left: -200px;*/
+	}
+}

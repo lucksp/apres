@@ -9,9 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/gmaps.css">
 </head>
-<div class="warning" ng-hide="warningMessage">
-  <h4>This site is for reference only.  None of the data is real.</h4>
-  <p ng-click="warningClicker()">Click Here to Close</p>
+<div class="warning" ng-hide="warningMessage" ng-click="warningClicker()">
+  <h4>This site is for reference only.  None of the data is real, yet.</h4>
+  <p>Click to Close</p>
 </div>
 <body ng-controller="apresController">
 
@@ -70,16 +70,14 @@
 	</div>
 
 	<!-- JUMBOTRON -->
-
-    <div class="jumbotron container-fluid">
-      <div class="jumbotronLeft col-sm-4">
-        <h1 class="jumboTextLeft">Snow Report</h1>
-      </div>
-      <div class="jumbotronRight col-sm-6">
-        <h1 class="jumboTextRight">Apr&eacutes Report</h1>
-      </div>
-    </div>
-
+<div class="content">
+  <div class="col-xs-12 col-md-6 jumbotronLeft">
+    <h1 class="jumboTextLeft">Snow Report</h1>
+  </div>
+  <div class="col-xs-12 col-md-6 jumbotronRight">
+    <h1 class="jumboTextRight">Apr&eacutes Report</h1>
+  </div>
+ -->
     <!-- CONTENT -->
 
 
@@ -142,7 +140,7 @@
 
 </div> <!-- CARD-DECK -->
 </div>
-
+</div> <!-- CONTENT END -->
 <!-- FOOTER -->
 
   <footer class="footer navbar-inverse">
