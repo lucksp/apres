@@ -87,7 +87,7 @@
           <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions.</p>
             <div>
               <ul class="snowSnapText" ng-repeat="mtn in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
-                <li><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></li>
+                <li><img alt="ski resort logos" class="mtnLogo" ng-src="img/logos/{{mtn.logoUrl}}"></li>
                 <li class="snowSnapName">{{mtn.name}}</li>
                 <li class="snowSnapInches">{{mtn.lastSnow}}"</li>
                 <li class="snowSnapDeg">{{mtn.hi}}&deg</li>

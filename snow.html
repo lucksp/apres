@@ -105,7 +105,7 @@
       </thead>
       <tbody class="tableContent">
         <tr ng-repeat="mtn in mtnsArray | orderBy:sortSnowType:sortSnowReverse | filter:searchSnowData">
-          <td><img alt="ski resort logos" class="mtnLogo" ng-src="{{mtn.logoUrl}}"></th>
+          <td><img alt="ski resort logos" class="mtnLogo" ng-src="/img/logos/{{mtn.logoUrl}}"></th>
           <th scope="row">{{mtn.name}}</td>
           <td>{{mtn.city}}</td>
           <td>{{mtn.lifts}}</td>
