@@ -12,7 +12,6 @@ angular.module('apresApp')
 			this.lifts = lifts;
 			this.trails = trails;
 			this.logoUrl = logoUrl;
-			// this.skiMap		= skiMap; 
 			this.hi = hi;
 			this.low = low;
 			this.description = description;
@@ -26,12 +25,11 @@ angular.module('apresApp')
 			this.HiThree = HiThree;
 			this.LowThree = LowThree;
 			this.IconThree = IconThree;
-			mtnsData.push(this)
+			mtnsData.push(this);
 
 		};
 
 		return {
-
 			MountainObj: MountainObj,
 			mtnsData: mtnsData,
 			get: function () {

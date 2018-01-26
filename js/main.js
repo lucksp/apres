@@ -27,7 +27,29 @@ angular.module('apresApp')
 
 		var returnApres = function (responseApres) {
 			if (eventPromoFactory.eventPromoArray.length === 0) {
-				responseApres.data.forEach(function (itemApres) {
+				var delta = Math.floor(responseApres.data.length / 10);
+
+				responseApres.data.forEach(function (itemApres, i) {
+					var now = new Date();
+
+					if (responseApres.data.length / delta % i === 0) {
+						itemApres.date = now;
+					} else if (responseApres.data.length / delta % i === 1) {
+						itemApres.date = now.setDate(now.getDate() + 1);
+					} else if (responseApres.data.length / delta % i === 2) {
+						itemApres.date = now.setDate(now.getDate() + 2);
+					} else if (responseApres.data.length / delta % i === 3) {
+						itemApres.date = now.setDate(now.getDate() + 3);
+					} else if (responseApres.data.length / delta % i === 4) {
+						itemApres.date = now.setDate(now.getDate() + 4);
+					} else if (responseApres.data.length / delta % i === 5) {
+						itemApres.date = now.setDate(now.getDate() + 5);
+					} else if (responseApres.data.length / 2 % 0) {
+						itemApres.date = now.setDate(now.getDate() + 2);
+					} else {
+						itemApres.date = now.setDate(now.getDate() + (responseApres.data.length / i));
+					}
+
 					new eventPromoFactory.EventPromoObj(itemApres.id, itemApres.name, itemApres.address, itemApres.city, itemApres.state, itemApres.zip, itemApres.type, itemApres.category, itemApres.rating, itemApres.date, itemApres.promotion, itemApres.code, itemApres.repeat);
 				});
 			}
@@ -47,7 +69,8 @@ angular.module('apresApp')
 
 		$scope.modalDetails = function (mtn) {
 			$scope.selectedMtn = mtn;
-		}
+		};
+
 		$scope.snowApres = function () {
 			if ($scope.selectedMtn) {
 				var tempZip = [];
@@ -96,10 +119,10 @@ angular.module('apresApp')
 		};
 
 		$scope.addDayClicker = function () {
-			$scope.nextDay()
+			$scope.nextDay();
 		};
 		$scope.subtrDayClicker = function () {
-			$scope.prevDay()
+			$scope.prevDay();
 		};
 
 		$scope.dayOfApres = function () {
@@ -117,7 +140,6 @@ angular.module('apresApp')
 		// WEATHER ICONS
 		$scope.selectedMtn = {};
 		$scope.getIcon = function (mtn) {
-
 			if (mtn.IconOne == 1) {
 				return 'img/icon_sunny.png';
 			} else if (mtn.IconOne == 2) {
@@ -168,6 +190,6 @@ angular.module('apresApp')
 		$scope.warningMessage = false;
 		$scope.warningClicker = function () {
 			$scope.warningMessage = true;
-		}
+		};
 
 	}]);

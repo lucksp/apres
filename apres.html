@@ -57,10 +57,13 @@
   </div>
 
 <div class="container calendar">
-  <div class="row">
-    <h3><span class="glyphicon glyphicon-chevron-left dayArrow" ng-click="subtrDayClicker()"></span> <span class="calendarDay">{{today | date: 'fullDate'}}</span> <span class="glyphicon glyphicon-chevron-right dayArrow" ng-click="addDayClicker(); details(apresList)"></span></h3>
-    <a class="btn btn-primary btn-lg todayBtn" role="button" ng-click="todayClicker()">Back to Today</a>
+  <div class="row date-select">
+    <span class="glyphicon glyphicon-chevron-left dayArrow" ng-click="subtrDayClicker()"></span>
+    <h3 class="calendarDay">{{today | date: 'fullDate'}}</h3>
+    <span class="glyphicon glyphicon-chevron-right dayArrow" ng-click="addDayClicker(); details(apresList)"></span>
+    </h3>
   </div>
+  <a class="btn btn-primary btn-lg todayBtn" role="button" ng-click="todayClicker()">Back to Today</a>
 </div>
 
 <div class="container apresTable">
@@ -116,17 +119,17 @@
 <!-- FOOTER -->
 
   <footer class="footer navbar-inverse">
-          <div class="row copy col-xs-4">
+          <div class="row copy col-xs-3">
             <p class="text-muted">&copy 2016 | PhLucks</p>
           </div>
-          <div class="form-group col-xs-4">
+          <div class="form-group col-xs-6">
             <form class="form-inline signUp">
               <label class="sr-only" for="exampleInputEmail">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
                   <button type="submit" class="btn btn-primary">Sign Up For Alerts</button>
             </form>
           </div>
-          <div class="row col-xs-4">
+          <div class="row col-xs-3">
             <p class="text-muted"> The information displayed on this site is for reference only and should not be considered accurate.</p>
           </div>
     </div>
@@ -137,7 +140,6 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
-  <script type="text/javascript" src="js/resortData.js"></script>
 
 	<script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/mtnFactory.js"></script>
