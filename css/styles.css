@@ -142,6 +142,18 @@ body {
 	min-height: 375px;
 }
 
+.index-snow-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.snow-snap-text {
+	display: flex;
+    justify-content: space-around;
+	align-items: center;
+	padding: 16px 0;
+}
+
 /* *** SNOW SNAPSHOT *** */
 
 .snowSnap {
@@ -164,6 +176,10 @@ body {
 	font-weight: bold;
 	color: #1abc9c;
 	padding-right: 15px;
+}
+
+.snow-snap-item {
+	flex: 1;
 }
 
 .snowSnapInches {

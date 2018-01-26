@@ -85,14 +85,14 @@
       <div class="card-block">
         <h4 class="card-title">Snow SnapShot</h4>
           <p class="card-text">For the last 48 hours, here are the mountains with most favorable conditions.</p>
-            <div>
-              <ul class="snowSnapText" ng-repeat="mtn in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
-                <li><img alt="ski resort logos" class="mtnLogo" ng-src="img/logos/{{mtn.logoUrl}}"></li>
-                <li class="snowSnapName">{{mtn.name}}</li>
-                <li class="snowSnapInches">{{mtn.lastSnow}}"</li>
-                <li class="snowSnapDeg">{{mtn.hi}}&deg</li>
-               <li class="snowSnapIcon"><img alt="weather icon" ng-src="{{getIcon(mtn)}}"></li>
-              </ul>
+            <div class="index-snow-wrapper">
+              <div class="snow-snap-text" ng-repeat="mtn in mtnsArray | orderBy:'-lastSnow' | limitTo: 5 ">
+                <div class="snowSnapName snow-snap-item"><img alt="ski resort logos" class="mtnLogo" ng-src="img/logos/{{mtn.logoUrl}}"></div>
+                <div class="snowSnapName snow-snap-item">{{mtn.name}}</div>
+                <div class="snowSnapInches snow-snap-item">{{mtn.lastSnow}}"</div>
+                <div class="snowSnapDeg snow-snap-item">{{mtn.hi}}&deg</div>
+               <div class="snowSnapIcon snow-snap-item"><img alt="weather icon" ng-src="{{getIcon(mtn)}}"></div>
+              </div>
             </div>
           <a class="btn btn-primary btn-lg fullReportBtn" href="snow.html" role="button">Full Report Here</a>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
